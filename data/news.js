@@ -11,7 +11,7 @@ const NEWS = [
   },
   {
     date: "2025.09",
-    text: `Joined <a href="https://pike.psu.edu/dongwon/" target="_blank" rel="noopener">Prof. Dongwon Lee</a>'s <a href="https://pike.psu.edu/" target="_blank" rel="noopener">PIKE Lab</a> at Penn State, co-advised by Prof. Kyumin Choi.`,
+    text: `Joined <a href="https://pike.psu.edu/dongwon/" target="_blank" rel="noopener">Prof. Dongwon Lee</a>'s <a href="https://pike.psu.edu/" target="_blank" rel="noopener">PIKE Lab</a> at Penn State, co-advised by <a href="https://www.cse.psu.edu/~kxc104/" target="_blank" rel="noopener">Prof. Kyumin Choi</a>.`,
   },
   {
     date: "2025.05",
