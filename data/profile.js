@@ -10,11 +10,11 @@ const PROFILE = {
 My research centers on <strong>trustworthy and reliable AI</strong> — particularly understanding how knowledge and facts are stored within Large Language Models, and how they can be manipulated or corrected. I am also interested in applying <strong>agentic AI systems for red-team testing automation</strong>. I also enjoy discussing Contemporary Philosophy.`,
   researchInterests: [
     "Trustworthy & Reliable AI",
-    "Knowledge in LLMs (Storage, Retrieval & Manipulation)",
+    "Knowledge in LLMs — Storage, Retrieval & Manipulation",
+    "Precise LLM Unlearning (Bi-Level Optimization)",
     "Mechanistic Interpretability",
     "Agentic AI for Red-Team Automation",
     "LLM Security & Robustness",
-    "Bioinformatics (prior work)",
   ],
   // Press / featured mentions shown as a callout on the About section
   featured: [

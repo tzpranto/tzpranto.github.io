@@ -4,35 +4,21 @@ const EXPERIENCE = [
     org: "Department of CSE, Pennsylvania State University",
     orgUrl: "https://www.psu.edu/",
     period: "August 2024 – Present",
-    description: "Working as a Graduate Assistant (RA/TA) at the Department of Computer Science and Engineering (CSE), Pennsylvania State University.",
+    description: `Working with <a href="https://pike.psu.edu/dongwon/">Prof. Dongwon Lee</a> (<a href="https://pike.psu.edu/">PIKE Lab</a>) and <a href="https://www.cse.psu.edu/~kxc104/">Prof. Kyusun Choi</a> on trustworthy AI and LLM unlearning.`,
   },
   {
-    role: "Assistant Professor",
+    role: "Faculty Member (on Study Leave)",
     org: "Department of CSE, BUET",
     orgUrl: "https://cse.buet.ac.bd/faculty_list/detail/toufikuzzaman",
-    period: "May 2024 – August 2024 (On Leave)",
-    description: "Assistant Professor at the Department of Computer Science and Engineering (CSE), Bangladesh University of Engineering and Technology (BUET).",
-  },
-  {
-    role: "Lecturer",
-    org: "Department of CSE, BUET",
-    orgUrl: "https://cse.buet.ac.bd/faculty_list/detail/toufikuzzaman",
-    period: "October 2019 – May 2024",
-    description: "Lecturer at the Department of Computer Science and Engineering (CSE), Bangladesh University of Engineering and Technology (BUET).",
-  },
-  {
-    role: "Lecturer (Adjunct)",
-    org: "Department of CSE, ULAB",
-    orgUrl: "https://ulab.edu.bd",
-    period: "October 2019 – January 2020",
-    description: "Adjunct Lecturer at the Department of Computer Science and Engineering (CSE), University of Liberal Arts Bangladesh (ULAB).",
+    period: "October 2019 – August 2024",
+    description: "Served as Lecturer (2019–2024) and Assistant Professor (2024) at the Department of CSE, Bangladesh University of Engineering and Technology (BUET).",
   },
   {
     role: "Research Assistant",
     org: "Department of CSE, BUET",
     orgUrl: "https://cse.buet.ac.bd/",
     period: "May 2019 – September 2019",
-    description: `Research assistant under supervision of <a href="https://cse.buet.ac.bd/faculty_list/detail/anindyaiqbal">Dr. Anindya Iqbal</a>. The project was funded by Samsung Research and Development, Bangladesh (SRBD). Research topic: automatic program repair.`,
+    description: `Research on automatic program repair under <a href="https://cse.buet.ac.bd/faculty_list/detail/anindyaiqbal">Dr. Anindya Iqbal</a>, funded by Samsung R&D Bangladesh.`,
   },
 ];
 
@@ -81,19 +67,22 @@ const AWARDS = [
 ];
 
 const TEACHING = [
-  { code: "CSE 405/406", title: "Computer Security & Sessional" },
-  { code: "CSE 451/452", title: "Computer Networks & Sessional" },
-  { code: "CSE 305/306", title: "Computer Architecture & Sessional" },
-  { code: "CSE 215/216", title: "Database & Sessional" },
-  { code: "CSE 218", title: "Numerical Methods [Sessional]" },
-  { code: "CSE 412", title: "Simulation and Modeling [Sessional]" },
-  { code: "CSE 308", title: "Software Engineering [Sessional]" },
-  { code: "CSE 326", title: "Information System Design [Sessional]" },
-  { code: "CSE 408", title: "Software Development [Sessional]" },
-  { code: "CSE 102", title: "Structured Programming Language [Sessional]" },
-  { code: "CSE 108", title: "Object Oriented Programming Language [Sessional]" },
-  { code: "CSE 208", title: "Data Structures and Algorithms II [Sessional]" },
-  { code: "CSE 284", title: "Digital Techniques Sessional" },
+  // PSU
+  { code: "CMPEN 472", title: "Microprocessor and Embedded Systems &nbsp;<em style='font-size:0.78rem;color:var(--text-muted)'>(TA, PSU)</em>" },
+  // BUET
+  { code: "CSE 405/406", title: "Computer Security & Lab" },
+  { code: "CSE 451/452", title: "Computer Networks & Lab" },
+  { code: "CSE 305/306", title: "Computer Architecture & Lab" },
+  { code: "CSE 215/216", title: "Database & Lab" },
+  { code: "CSE 218", title: "Numerical Methods [Lab]" },
+  { code: "CSE 412", title: "Simulation and Modeling [Lab]" },
+  { code: "CSE 308", title: "Software Engineering [Lab]" },
+  { code: "CSE 326", title: "Information System Design [Lab]" },
+  { code: "CSE 408", title: "Software Development [Lab]" },
+  { code: "CSE 102", title: "Structured Programming Language [Lab]" },
+  { code: "CSE 108", title: "Object Oriented Programming Language [Lab]" },
+  { code: "CSE 208", title: "Data Structures and Algorithms II [Lab]" },
+  { code: "CSE 284", title: "Digital Techniques [Lab]" },
 ];
 
 const SERVICES = [
