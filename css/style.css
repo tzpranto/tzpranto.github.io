@@ -140,6 +140,7 @@ body { background: #c8d8e8; } /* visible outside the container */
   color: var(--psu-beaver-blue);
   font-weight: 700;
   letter-spacing: 0.02em;
+  text-transform: none;
 }
 
 .sidebar-dept,
