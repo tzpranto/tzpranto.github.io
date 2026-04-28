@@ -145,15 +145,15 @@ body { background: #c8d8e8; } /* visible outside the container */
 
 .sidebar-dept,
 .sidebar-institution {
-  font-size: 0.78rem;
+  font-size: 0.88rem;
   color: var(--sidebar-muted);
-  line-height: 1.4;
+  line-height: 1.45;
   margin-top: 0.15rem;
 }
-.sidebar-institution { color: var(--psu-beaver-blue); font-weight: 600; }
+.sidebar-institution { color: var(--psu-beaver-blue); font-weight: 700; }
 
 .sidebar-location {
-  font-size: 0.75rem;
+  font-size: 0.84rem;
   color: var(--sidebar-muted);
   margin-top: 0.4rem;
   display: flex;

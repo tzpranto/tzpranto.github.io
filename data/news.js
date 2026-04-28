@@ -51,6 +51,11 @@ const NEWS = [
     text: `Welcomed our first daughter, <strong>Mahnoor Z. Tiana</strong>.`,
   },
   {
+    date: "2022.01",
+    type: "pub",
+    text: `Paper <em>"Phylogenetic Analyses of SARS-CoV-2 Strains Reveal Its Link to the Spread of COVID-19 Across the Globe"</em> published in <strong>MEDINFO 2021: One World, One Health – Global Partnership for Digital Innovation</strong>, IOS Press.`,
+  },
+  {
     date: "2020.02",
     type: "personal",
     text: `Tied the knot with my soulmate, <strong>Mahfuza Hassan</strong> (02/02/2020).`,
