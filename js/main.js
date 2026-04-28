@@ -67,13 +67,32 @@ function renderNews() {
     el.innerHTML = `<p class="news-empty">No news yet – check back soon.</p>`;
     return;
   }
-  el.innerHTML = `<ul class="news-list">` +
-    NEWS.map(n => `
-      <li class="news-item">
-        <span class="news-date">[${n.date}]</span>
-        <span>${n.text}</span>
-      </li>`).join("") +
-    `</ul>`;
+
+  // Group by year
+  const byYear = {};
+  NEWS.forEach(n => {
+    const year = n.date.split(".")[0];
+    if (!byYear[year]) byYear[year] = [];
+    byYear[year].push(n);
+  });
+
+  const years = Object.keys(byYear).sort((a, b) => b - a);
+
+  let html = `<ul class="news-list">`;
+  years.forEach(year => {
+    html += `<li><div class="news-year-divider">${year}</div></li>`;
+    byYear[year].forEach(n => {
+      const isPersonal = n.type === "personal";
+      html += `
+        <li class="news-item${isPersonal ? " news-personal" : ""}">
+          <span class="news-date">[${n.date.split(".")[1]}]</span>
+          <span class="news-dot"></span>
+          <span>${n.text}</span>
+        </li>`;
+    });
+  });
+  html += `</ul>`;
+  el.innerHTML = html;
 }
 
 /* ── Publications ── */
