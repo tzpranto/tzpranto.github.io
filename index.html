@@ -1,483 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal academic website of Mohammed (Md) Toufikuzzaman, PhD student at Penn State University.">
+  <title>Md. Toufikuzzaman</title>
 
-  <title>Toufik Zaman</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <!-- Font Awesome -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="font-mfizz/font-mfizz.css">
 
-  <!-- Custom styles for this template -->
-  <link href="css/resume.min.css" rel="stylesheet">
+  <!-- Site Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HZRPVZT3M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5HZRPVZT3M');
+  </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HZRPVZT3M"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-5HZRPVZT3M');
-</script>
+<body>
+<div class="site-wrapper">
 
-<body id="page-top">
+  <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+  <aside class="sidebar">
+    <img id="sidebar-photo" class="sidebar-photo" src="" alt="">
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-    <a class="navbar-brand js-scroll-trigger" href="#page-top">
-      <span class="d-block d-lg-none">Mohammed(Md) Toufikuzzaman</span>
-      <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/Toufikuzzaman.JPG" alt="">
-      </span>
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#publications">Publications</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#services">Professional Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#courses">Teaching Experience</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-        </li>
-		<li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-        </li>
-      </ul>
+    <div class="sidebar-info">
+      <div id="sidebar-name"   class="sidebar-name"></div>
+      <div id="sidebar-title"  class="sidebar-title"></div>
+      <div id="sidebar-dept"   class="sidebar-dept"></div>
+      <div id="sidebar-institution" class="sidebar-institution"></div>
+      <div id="sidebar-location"    class="sidebar-location" style="margin-top:0.25rem"></div>
     </div>
-  </nav>
 
-  <div class="container-fluid p-0">
+    <hr class="sidebar-divider">
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
-      <div class="w-100">
-        <h2 class="mb-0">
-          <span class="text-primary">Mohammed(Md) Toufikuzzaman</span>
-        </h2>
-        <div class="subheading mb-5">State College, PA, USA
-        </div>
-        <p class="lead mb-5">
-		I am a Graduate Teaching Assistant and second-year Ph.D. student at the Department of <a href="https://www.eecs.psu.edu/departments/EECS-Departments-Computer-Science-Engineering3.aspx"> Computer Science and Engineering (CSE)</a> of <a href="https://www.psu.edu/">Pennsylvania State University</a>. Previously, I was an Assistant Professor (currently on leave) at the Department of <a href="https://cse.buet.ac.bd">Computer Science and Engineering (CSE)</a>, <a href="https://buet.ac.bd" >Bangladesh University of Engineering and Technology (BUET)</a>. My research focuses on the security and reliability of Large Language Models, particularly analyzing and correcting overrefusal using mechanistic interpretability. I also enjoy discussing Contemporary Philosophy. I have an M.Sc. Engg. and a B.Sc. Engg. degree  in Computer Science and Engineering (CSE) from Bangladesh University of Engineering and Technology (BUET). </p>
-      </div>
+    <!-- Social / Contact Links (populated by JS) -->
+    <div id="sidebar-links" class="sidebar-links"></div>
+
+    <hr class="sidebar-divider">
+
+    <!-- Navigation -->
+    <nav class="sidebar-nav">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#services">Services</a>
+      <a href="#awards">Awards</a>
+    </nav>
+  </aside>
+
+  <!-- ═══════════════════ MAIN ═══════════════════ -->
+  <main class="main-content">
+
+    <!-- About -->
+    <section class="section" id="about">
+      <h2 class="section-title">About</h2>
+      <p id="about-bio" class="about-bio"></p>
     </section>
 
-    <section id="publications" class="resume-section p-3 p-lg-5 d-flex align-items-center">
-      <div class="w-100">
-      <h2 class="mb-5">Publications <h3><div><a href="https://scholar.google.com/citations?user=-8m6JVAAAAAJ&hl=en">
-        Google Scholar Profile
-      </a></div></h3></h2>
-      <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-      <div class="resume-content">
-      
-<p>Mujtahid Akon, <b>Md. Toufikuzzaman</b>, Syed Rafiul Hussain <br> 
-        <b>From Control to Chaos: A Comprehensive Formal Analysis of 5G’s Access Control</i></b> <br> <i>IEEE Symposium on Security and Privacy (SP) (2025)</i> <a href="https://www.computer.org/csdl/pds/api/csdl/proceedings/download-article/26hiU5s1BGE/pdf"> [pdf] </a> <a href="https://github.com/SyNSec-den/CoreScan"> [code] </a> </p>
-
-	      
-      <p><b>Md. Toufikuzzaman</b>, Md Abul Hassan Samee, and M. Sohel Rahman <br> 
-        <b>CRISPR-DIPOFF: An Interpretable Deep Learning Approach for CRISPR Cas-9 Off-Target Prediction</b>.<br> <i>Briefings in Bioinformatics 25.2 (2024)</i> <a href="https://academic.oup.com/bib/article-pdf/25/2/bbad530/56625790/bbad530.pdf"> [pdf] </a> <a href="https://github.com/tzpranto/CRISPR-DIPOFF"> [code] </a> </p>
-
-      <p>Syed Md. Mukit Rashid, <b>Md. Toufikuzzaman</b>, and Md. Shohrab Hossain <br> 
-      <b>A Deep Learning Based Semi-Supervised Network Intrusion Detection System Robust to Adversarial Attacks</b>.<br> <i> 10th International Conference on Networking Systems and Security (NSysS), 2023</i> <a href="https://mshohrabhossain.buet.ac.bd/pub/23-NSysS-NIDS-Camera.pdf"> [pdf] </a> <a href="https://github.com/tzpranto/NIDS_NSYSS_23"> [code] </a> </p>
-
-      <p>Shashata Sawmya, Arpita Saha, Sadia Tasnim, Naser Anjum, <b> Md. Toufikuzzaman </b>, Ali Haisam Muhamad Rafid, Mohammad Saifur Rahman, M. Sohel Rahman, and Tanvir Alam <br> 
-        <b>Phylogenetic Analyses of SARS-CoV-2 Strains Reveal Its Link to the Spread of COVID-19 Across the Globe</b>.<br> <i> MEDINFO 2021: One World, One Health–Global Partnership for Digital Innovation, pp. 729-733. IOS Press, 2022.</i> <a href="https://www.biorxiv.org/content/10.1101/2020.06.03.131987v2.full.pdf"> [pdf] </a> <a href="https://github.com/pythonLoader/Analyzing-hCov-Genome-Sequence"> [code] </a> </p>
-
-      <p>Ali Haisam Muhammad Rafid, <b>Md. Toufikuzzaman</b>,  Mohammad Saifur Rahman, and M. Sohel Rahman <br> 
-        <b>CRISPRpred(SEQ): a sequence-based method for sgRNA on target activity prediction
-          using traditional machine learning</b>.<br> <i> BMC Bioinformatics 21, 223 (2020).</i> <a href="https://doi.org/10.1186/s12859-020-3531-9"> [pdf] </a> <a href="https://github.com/Rafid013/CRISPRpredSEQ"> [code] </a> </p>
-      
-          <div>
-            <b>Erdős Number: 4</b> (Paul Erdős &#x2192 Lou Caccetta &#x2192 William F. Smyth &#x2192 M. Sohel Rahman &#x2192 Md. Toufikuzzaman)
-          </div>
-
-      </div>
-
-        
-      </div>
-      </div>
-      </section>
-
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="experience">
-      <div class="w-100">
-        <h2 class="mb-5">Experience</h2>
-	      
-	<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Graduate Assistant (RA/TA)</h3>
-            <div class="subheading mb-3">Department of CSE, PSU</div>
-            <p>Currently working as a <a href="https://www.psu.edu/">Graduate Assistant (RA/TA)</a> at the Department of Computer Science and Engineering (CSE), <a href="https://www.psu.edu/" >Pennsylvania State University</a>.</p>
-          </div>
-		  
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2024 - Present</span>
-          </div>
-        </div>
-	      
-	<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Assistant Professor</h3>
-            <div class="subheading mb-3">Department of CSE, BUET</div>
-            <p>Worked as an <a href="https://cse.buet.ac.bd/faculty_list/detail/toufikuzzaman">Assistant Professor</a> at the Department of Computer Science and Engineering (CSE), <a href="https://buet.ac.bd" >Bangladesh University of Engineering and Technology (BUET)</a>.</p>
-          </div>
-		  
-          <div class="resume-date text-md-right">
-            <span class="text-primary">May 2024 - August 2024 (On Leave)</span>
-          </div>
-        </div>
-	      
-	<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Lecturer</h3>
-            <div class="subheading mb-3">Department of CSE, BUET</div>
-            <p>Worked as a <a href="https://cse.buet.ac.bd/faculty_list/detail/toufikuzzaman">Lecturer</a> at the Department of Computer Science and Engineering (CSE), <a href="https://buet.ac.bd" >Bangladesh University of Engineering and Technology (BUET)</a>.</p>
-          </div>
-		  
-          <div class="resume-date text-md-right">
-            <span class="text-primary">October 2019 - May 2024</span>
-          </div>
-        </div>
-		
-		<div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Lecturer</h3>
-            <div class="subheading mb-3">Department of CSE, ULAB</div>
-            <p>Worked as an adjunct Lecturer at the Department of Computer Science and Engineering (CSE), <a href="https://ulab.edu.bd" >University of Liberal Arts Bangladesh (ULAB)</a>.</p>
-          </div>
-		  
-          <div class="resume-date text-md-right">
-            <span class="text-primary">October 2019 - January 2020</span>
-          </div>
-        </div>
-		
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
-          <div class="resume-content">
-            <h3 class="mb-0">Research Assistant</h3>
-            <div class="subheading mb-3">Department of CSE,BUET</div>
-            <p>Worked as a research assistant under supervision of <a href="https://cse.buet.ac.bd/faculty_list/detail/anindyaiqbal">Dr. Anindya Iqbal</a> in <a href="https://cse.buet.ac.bd/">CSE,BUET</a>. The research project was funded by Samsung Research and Development, Bangladesh <a href="https://research.samsung.com/srbd">(SRBD)</a>. My research topic was automatic program repair.</p>
-          </div>
-		  
-          <div class="resume-date text-md-right">
-            <span class="text-primary">May 2019 - September 2019</span>
-          </div>
-        </div>
-
-      </div>
-
+    <!-- Research Interests -->
+    <section class="section" id="interests">
+      <h2 class="section-title">Research Interests</h2>
+      <ul id="interests-list" class="interest-tags"></ul>
     </section>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
-      <div class="w-100">
-        <h2 class="mb-5">Education</h2>
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3><a href="https://www.psu.edu/">Pennsylvania State University</a></h3>
-            <div><strong>Studying:</strong> Ph.D.</div>
-            <div><strong>Subject:</strong> Computer Science and Engineering (CSE)</div>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">August 2024 - Present</span>
-          </div>
-        </div>
-	      
-	<div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3><a href="http://buet.ac.bd/">Bangladesh University of Engineering and Technology (BUET)</a></h3>
-            <div><strong>Obtained Degree:</strong> M.Sc. Engg</div>
-            <div><strong>Subject:</strong> Computer Science and Engineering (CSE)</div>
-            <p><strong>CGPA:</strong> 4.00/4.00</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">Passed in 2023</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3><a href="http://buet.ac.bd/">Bangladesh University of Engineering and Technology (BUET)</a></h3>
-            <div><strong>Obtained Degree:</strong> B.Sc. Engg</div>
-            <div><strong>Subject:</strong> Computer Science and Engineering (CSE)</div>
-            <p><strong>CGPA:</strong> 3.97/4.00</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">Passed in 2019</span>
-          </div>
-        </div>
-
-        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0"><a href="http://www.kccollege.edu.bd/">Government K.C. College, Jhenaidah</a></h3>
-            <div><strong>Obtained Degree:</strong> H.S.C.(Higher Secondary Certificate)</div>
-			<div><strong>Subject:</strong> Science</div>
-            <p><strong>GPA:</strong> 5.00/5.00</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">Passed in 2014</span>
-          </div>
-        </div>
-
-		<div class="resume-item d-flex flex-column flex-md-row justify-content-between">
-          <div class="resume-content">
-            <h3 class="mb-0"><a href="https://jhenidahgovtsecondaryschool.jessoreboard.gov.bd/">Jhenaidah Government High School</a></h3>
-            <div><strong>Obtained Degree:</strong> S.S.C.(Secondary School Certificate)</div>
-			<div><strong>Subject:</strong> Science</div>
-            <p><strong>GPA:</strong> 5.00/5.00</p>
-          </div>
-          <div class="resume-date text-md-right">
-            <span class="text-primary">Passed in 2012</span>
-          </div>
-        </div>
-		
-      </div>
+    <!-- News -->
+    <section class="section" id="news">
+      <h2 class="section-title">News</h2>
+      <div id="news-list"></div>
     </section>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="services"> 
-      <div class="w-100">
-        <h2 class="mb-5">Professional Services [Selected]</h2>
-        <p>
-        <b>      
-        <ul>
-        <li>Technical Committee Member of Investment Promotion & Financing Facility II (IPFF II) Project of Bangladesh Bank (Funded by the World Bank)</li>
-        <li>Vulnerability Assessment and Penetration Testing of Android, iOS and Web Applications and IT Infrastructures.</li>
-        <li>Consultation on Establishment of Security Operations Center (SOC) in a government organization of Bangladesh</li>
-        <li>Member of various Technical Sub-Committees of Government Organizations in Bangladesh</li>
-        <li>Development of Mission Critical components for BANBEIS IEIMS project of Ministry of Education of Bangladesh Government</li>
-        <li>Designing Cyber Security Lab for Department of CSE, BUET</li>
-        <li>Coach of several ICPC and CTF teams of CSE, BUET</li>
-        </ul>
-      </b>
-      </p>
-      </div>
+    <!-- Publications -->
+    <section class="section" id="publications">
+      <h2 class="section-title">
+        Publications
+        <a href="https://scholar.google.com/citations?user=-8m6JVAAAAAJ&hl=en" target="_blank" rel="noopener">
+          Google Scholar ↗
+        </a>
+      </h2>
+      <div id="pub-list"></div>
+      <div id="erdos-note" class="erdos-note" style="display:none"></div>
     </section>
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="courses"> 
-      <div class="w-100">
-        <h2 class="mb-5">Teaching Experience [Selected]</h2>
-        <p>      
-        <ul>
-        <li><b>CSE 405:</b> Computer Security</li>
-	<li><b>CSE 406:</b> Computer Security Sessional</li>
-        <li><b>CSE 451:</b> Computer Networks</li>
-	<li><b>CSE 452:</b> Computer Networks Sessional</li>
-        <li><b>CSE 305:</b> Computer Architecture</li>
-	<li><b>CSE 306:</b> Computer Architecture Sessional</li>
-        <li><b>CSE 215:</b> Database</li>
-	<li><b>CSE 216:</b> Database Sessional</li>
-        <li><b>CSE 218:</b> Numerical Methods [Sessional]</li>
-        <li><b>CSE 412:</b> Simulation and Modeling [Sessional]</li>
-        <li><b>CSE 308:</b> Software Engineering [Sessional]</li>
-        <li><b>CSE 326:</b> Information System Design [Sessional]</li>
-        <li><b>CSE 408:</b> Software Development [Sessional]</li>
-        <li><b>CSE 102:</b> Structured Programming Language [Sessional]</li>
-        <li><b>CSE 108:</b> Object Oriented Programming Language [Sessional]</li>
-        <li><b>CSE 208:</b> Data Structures and Algorithms II [Sessional]</li>
-	<li><b>CSE 284:</b> Digital Techniques Sessional</li>
-        </ul>
-      </p>
-      </div>
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <h2 class="section-title">Experience</h2>
+      <div id="exp-list"></div>
     </section>
 
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
-      <div class="w-100">
-        <h2 class="mb-5">Skills</h2>
-
-        <div class="subheading mb-3"></div>
-        <ul class="list-inline dev-icons">
-          <li class="list-inline-item">
-            <i class="icon-c"></i>
-          </li>
-		  <li class="list-inline-item">
-            <i class="icon-cplusplus"></i>
-          </li>
-		  <li class="list-inline-item">
-            <i class="icon-java"></i>
-          </li>
-		  <li class="list-inline-item">
-            <i class="icon-python"></i>
-          </li>      
-        </ul>
-		
-		
-		<div class="subheading mb-3">Technical Skills</div>
-		  <ul>
-          <li>
-            <strong>Expert:</strong> Python, C, C++, Java.
-		  </li>
-		  <li>
-            <strong>Fairly Good:</strong> Bash, HTML, CSS, LATEX, SQL, Javascript, Assembly.
-		  </li>
-      <li>
-        <strong>Deep Learning Frameworks:</strong> PyTorch, Keras
-      </li>
-		  <!-- <li>
-			<strong>Hardware Tools:</strong> Adruino, ESP, and Different Micro-controllers and Networking chips.
-		  </li> -->
-		  <li>
-			<strong>Database:</strong> SQL Server, Oracle, MySQL, and Redis.
-		  </li>
-		  <!-- <li>
-			<strong>Design Tools:</strong>  Proteus circuit simulator, AutoCAD, and CISCO packet tracer.
-		  </li> -->
-      <li>
-        <strong>Vulnerability Assessment and Penetration Testing:</strong> Metasploit, Burp-Suite and differnet Web testing tools.
-        </li>
-<!-- 	<li> <strong>Networking:</strong> Cisco Packet Tracer, Wireshark.</li> -->
-	<li> <strong>Embedded Systems:</strong> Arduino, ESP, ATMega32 and Different Micro-controllers and Networking chips.</li>
-	
-		  <!-- <li>
-			<strong>Cloud Platform:</strong> Firebase, Netlify, Thingspeak, and other online database and web hosting platforms.
-		  </li>
-		  <li>
-			<strong>Version Control System:</strong> Git.
-		  </li> -->
-		  </ul>
-		
-        
-		<div class="subheading mb-3">Commuication Skills</div>
-		<ul>
-		<li>English</li>
-		<li>Bangla</li>
-		</ul>
-      </div>
+    <!-- Education -->
+    <section class="section" id="education">
+      <h2 class="section-title">Education</h2>
+      <div id="edu-list"></div>
     </section>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
-    <div class="w-100">
-      
-	  <h2 class="mb-5">Interests</h2>
-	  
-	  <h3>Research Interests</h3>
-	  <ul>
-            <li>Artificial Intelligence and Machine Learning.</li>
-	    <li>Bioinformatics</li>
-	    <li>Computer Security and Systems</li>	  
-	  </ul>
-	  
-	  <h3>Hobbies and Other Interests</h3>
-	  <ul>  
-      <li>Experimenting in my home laboratory (aka the Kitchen)</li>
-      <li>Antique Collection</li>
-	  </ul>
-	  
-    </div>
+    <!-- Teaching -->
+    <section class="section" id="teaching">
+      <h2 class="section-title">Teaching Experience <span style="font-size:0.7rem;font-weight:400;color:var(--text-muted)">[Selected]</span></h2>
+      <div id="teaching-list"></div>
     </section>
 
-    <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
-      <div class="w-100">
-        <h2 class="mb-5">Awards &amp; Certifications</h2>
-        <ul class="fa-ul mb-0">
-         
-		  <li>
-			<i class="fa-li fa fa-trophy text-warning"></i>
-			<strong>B.Sc.:</Strong> Got a place on the Dean’s List in all four levels and university talent-pool scholarship in all eight terms.
-		  </li>
-        
-          <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-			<strong>H.S.C.:</strong> Board general scholarship.
-		  </li>
-		  <li>
-            <i class="fa-li fa fa-trophy text-warning"></i>
-			<strong>S.S.C.:</strong> Board general scholarship.
-		  </li>
-		  
-        </ul>
-      </div>
-    </section>
-	
-	<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="contact">
-      <div class="w-100">
-        <h2 class="mb-5">Contact</h2>
-        <h3>Email</h3>
-	      
-	<ul>
-		<li>md.toufikzaman@gmail.com</li>
-		<li>mpt5763@psu.edu</li>
-		<li>toufik@cse.buet.ac.bd</li>
-	</ul>
-
-	<h3>Weblinks</h3>
-
-	<ul>
-	    <li><a href="https://cse.buet.ac.bd/faculty/faculty_detail/toufikuzzaman"> Webpage at CSE, BUET</a></li>
-	    <li><a href="https://scholar.google.com/citations?user=-8m6JVAAAAAJ&hl=en"> Google Scholar Profile</a></li>
-	</ul>
-		
-	<br>
-    
-	
-       <div class="social-icons">
-          <a href="https://github.com/tzpranto">
-            <i class="fab fa-github"></i>
-          </a>    
-          <a href="https://linkedin.com/in/toufik-zaman-pranto">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://twitter.com/toufik_pranto">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="https://www.facebook.com/tzpranto">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-        </div>
-      </div>
+    <!-- Professional Services -->
+    <section class="section" id="services">
+      <h2 class="section-title">Professional Services <span style="font-size:0.7rem;font-weight:400;color:var(--text-muted)">[Selected]</span></h2>
+      <div id="services-list"></div>
     </section>
 
-  </div>
-  
+    <!-- Awards -->
+    <section class="section" id="awards">
+      <h2 class="section-title">Awards &amp; Honors</h2>
+      <div id="awards-list"></div>
+    </section>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  </main>
+</div>
 
-  <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Data files (edit these to update content) -->
+<script src="data/profile.js"></script>
+<script src="data/news.js"></script>
+<script src="data/publications.js"></script>
+<script src="data/experience.js"></script>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/resume.min.js"></script>
+<!-- Renderer -->
+<script src="js/main.js"></script>
 </body>
-
 </html>
