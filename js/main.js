@@ -60,7 +60,22 @@ function renderResearchInterests() {
     .join("");
 }
 
-/* ── News ── */
+/* ── News / Timeline ── */
+const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function typeClass(type) {
+  if (type === "personal") return "timeline-personal";
+  if (type === "pub")      return "timeline-pub";
+  return "";
+}
+
+function typeTag(type) {
+  if (type === "personal") return `<span class="timeline-tag tag-personal">Personal</span>`;
+  if (type === "pub")      return `<span class="timeline-tag tag-pub">Publication</span>`;
+  if (type === "career")   return `<span class="timeline-tag tag-career">Career</span>`;
+  return "";
+}
+
 function renderNews() {
   const el = document.getElementById("news-list");
   if (!NEWS || NEWS.length === 0) {
@@ -78,18 +93,24 @@ function renderNews() {
 
   const years = Object.keys(byYear).sort((a, b) => b - a);
 
-  let html = `<ul class="news-list">`;
+  let html = `<ul class="timeline">`;
   years.forEach(year => {
-    html += `<li><div class="news-year-divider">${year}</div></li>`;
+    html += `<li class="timeline-year-block">
+      <div class="timeline-year-label">${year}</div>
+      <ul class="timeline-items">`;
+
     byYear[year].forEach(n => {
-      const isPersonal = n.type === "personal";
+      const monthNum = parseInt(n.date.split(".")[1], 10);
+      const monthLabel = MONTH_NAMES[monthNum - 1] || n.date.split(".")[1];
       html += `
-        <li class="news-item${isPersonal ? " news-personal" : ""}">
-          <span class="news-date">[${n.date.split(".")[1]}]</span>
-          <span class="news-dot"></span>
-          <span>${n.text}</span>
+        <li class="timeline-item ${typeClass(n.type)}">
+          <span class="timeline-month">${monthLabel}</span>
+          <span class="timeline-dot"></span>
+          <span class="timeline-text">${typeTag(n.type)}${n.text}</span>
         </li>`;
     });
+
+    html += `</ul></li>`;
   });
   html += `</ul>`;
   el.innerHTML = html;

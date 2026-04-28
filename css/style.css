@@ -204,54 +204,116 @@ li { margin-bottom: 0.25em; }
   margin: 0;
 }
 
-/* ── News ── */
-.news-list {
+/* ── News / Timeline ── */
+.timeline {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+/* Year group */
+.timeline-year-block { margin-bottom: 0.5rem; }
+
+.timeline-year-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--accent);
+  padding: 0.22rem 0.9rem 0.22rem 0.75rem;
+  border-radius: 20px;
+  margin-bottom: 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+/* Items within a year */
+.timeline-items {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem 0.6rem;
+  border-left: 2px solid var(--border);
   display: flex;
   flex-direction: column;
-  gap: 0.55rem;
+  gap: 0;
 }
-.news-item {
-  display: flex;
-  gap: 0.9rem;
-  font-size: 0.95rem;
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 52px 14px 1fr;
   align-items: flex-start;
+  gap: 0 0.75rem;
+  padding: 0.55rem 0 0.55rem 0;
+  position: relative;
 }
-.news-date {
+
+/* Month badge */
+.timeline-month {
+  font-size: 0.78rem;
   font-weight: 700;
   color: var(--accent-light);
-  white-space: nowrap;
-  min-width: 66px;
-  font-size: 0.88rem;
+  text-align: right;
+  padding-top: 0.22em;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
-.news-dot {
-  width: 8px;
-  height: 8px;
+
+/* Circle on the line */
+.timeline-dot {
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--accent-light);
+  background: #fff;
+  border: 2.5px solid var(--accent-light);
   flex-shrink: 0;
-  margin-top: 0.55em;
+  margin-top: 0.3em;
+  position: relative;
+  left: -7px;         /* center over the border-left line */
+  transition: border-color var(--transition), transform var(--transition);
 }
-.news-personal .news-dot { background: #e88c8c; }
-.news-personal .news-date { color: #c0636a; }
+.timeline-item:hover .timeline-dot {
+  border-color: var(--accent);
+  transform: scale(1.25);
+}
+
+/* Personal events */
+.timeline-personal .timeline-dot  { border-color: #d9636a; background: #fff0f0; }
+.timeline-personal .timeline-month { color: #c0636a; }
+
+/* Publication events */
+.timeline-pub .timeline-dot { border-color: #3b82f6; background: #eff6ff; }
+.timeline-pub .timeline-month { color: #2563eb; }
+
+/* Event text */
+.timeline-text {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text);
+  padding-top: 0.1em;
+}
+
+.timeline-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.45rem;
+  border-radius: 3px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+.tag-pub      { background: #dbeafe; color: #1d4ed8; }
+.tag-personal { background: #ffe4e6; color: #be123c; }
+.tag-career   { background: #dcfce7; color: #15803d; }
+
 .news-empty {
   color: var(--text-muted);
   font-style: italic;
   font-size: 0.95rem;
-}
-
-/* Year divider in timeline */
-.news-year-divider {
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding: 0.6rem 0 0.3rem;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 0.6rem;
-  margin-top: 0.8rem;
 }
 
 /* ── Publications ── */
