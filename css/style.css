@@ -137,13 +137,13 @@ body { background: #c8d8e8; } /* visible outside the container */
   gap: 0.1rem;
 }
 .sidebar-preferred-name {
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 .sidebar-full-name {
-  font-size: 0.72rem;
-  font-weight: 400;
-  color: var(--sidebar-muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--psu-nittany-navy);
   letter-spacing: 0.01em;
 }
 
