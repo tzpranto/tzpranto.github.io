@@ -1,4 +1,5 @@
 const PROFILE = {
+  lastUpdated: "April 28, 2026",
   name: "Mohammed (Md) Toufikuzzaman",
   shortName: "Toufik Zaman",
   title: "Ph.D. Student",

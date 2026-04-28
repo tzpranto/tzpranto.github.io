@@ -9,7 +9,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -133,9 +133,8 @@
 <!-- Fixed Footer -->
 <footer class="site-footer">
   <span>&copy; <span id="footer-year"></span> Mohammed (Md) Toufikuzzaman &nbsp;·&nbsp; Pennsylvania State University</span>
-  <span class="footer-links">
-    <a href="mailto:mpt5763@psu.edu">mpt5763@psu.edu</a>
-  </span>
+  <span id="footer-updated" class="footer-updated"></span>
+  <span class="footer-links"><a href="mailto:mpt5763@psu.edu">mpt5763@psu.edu</a></span>
 </footer>
 
 <!-- Data files (edit these to update content) -->
@@ -146,6 +145,12 @@
 
 <!-- Renderer -->
 <script src="js/main.js"></script>
-<script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+  const lu = document.getElementById("footer-updated");
+  if (lu && typeof PROFILE !== "undefined" && PROFILE.lastUpdated) {
+    lu.textContent = "Last updated: " + PROFILE.lastUpdated;
+  }
+</script>
 </body>
 </html>
