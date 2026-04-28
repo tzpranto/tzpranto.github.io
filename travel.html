@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Travel photos and adventures of Toufik (Mohammed Md Toufikuzzaman).">
+  <title>Travel — Toufik</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <!-- Site Stylesheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+  <style>
+    /* ── Travel page-specific styles ── */
+    .travel-hero {
+      padding: 2.8rem 2.5rem 1.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .travel-hero h1 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--psu-nittany-navy);
+      margin: 0 0 0.4rem;
+    }
+    .travel-hero p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .travel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.6rem;
+      padding: 2rem 2.5rem 6rem;
+    }
+
+    .trip-card {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,30,68,.10);
+      background: #fff;
+      border: 1px solid var(--border);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      cursor: default;
+    }
+    .trip-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(0,30,68,.14);
+    }
+
+    .trip-cover {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #b8dcf2 0%, #9fcde8 100%);
+    }
+    .trip-cover-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #b8dcf2 0%, #9fcde8 100%);
+      color: var(--psu-beaver-blue);
+      gap: 0.5rem;
+    }
+    .trip-cover-placeholder i {
+      font-size: 2.5rem;
+      opacity: 0.5;
+    }
+    .trip-cover-placeholder span {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      font-style: italic;
+    }
+
+    .trip-body {
+      padding: 1rem 1.2rem 1.1rem;
+    }
+    .trip-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--psu-nittany-navy);
+      margin: 0 0 0.25rem;
+    }
+    .trip-meta {
+      display: flex;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+    }
+    .trip-meta i {
+      margin-right: 0.25rem;
+      color: var(--psu-sky);
+    }
+    .trip-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .trip-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin-top: 0.6rem;
+    }
+    .trip-photos-grid img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      border-radius: 3px;
+    }
+
+    .travel-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+    }
+    .travel-empty i {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 1rem;
+      opacity: 0.4;
+    }
+
+    /* How-to banner */
+    .add-photos-hint {
+      background: #eef3fa;
+      border: 1px dashed #96bee6;
+      border-radius: 8px;
+      padding: 0.7rem 1.2rem;
+      font-size: 0.8rem;
+      color: var(--psu-beaver-blue);
+      margin: 0 2.5rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .add-photos-hint i { margin-top: 2px; flex-shrink: 0; }
+    .add-photos-hint code {
+      background: rgba(0,30,68,.07);
+      border-radius: 3px;
+      padding: 0 4px;
+      font-size: 0.78rem;
+    }
+  </style>
+</head>
+
+<body>
+<div class="site-wrapper">
+
+  <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+  <aside class="sidebar">
+    <div class="sidebar-photo-wrap">
+      <img id="sidebar-photo" class="sidebar-photo" src="" alt="">
+      <div id="sidebar-name"        class="sidebar-name"></div>
+      <div id="sidebar-title"       class="sidebar-title"></div>
+      <div id="sidebar-dept"        class="sidebar-dept"></div>
+      <div id="sidebar-institution" class="sidebar-institution"></div>
+      <div id="sidebar-location"    class="sidebar-location"></div>
+    </div>
+
+    <div class="sidebar-scroll">
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Links</div>
+        <div id="sidebar-links" class="sidebar-links"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Navigate</div>
+        <nav class="sidebar-nav">
+          <a href="index.html">← Home</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#news">News</a>
+          <a href="index.html#publications">Publications</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#education">Education</a>
+          <a href="travel.html" class="nav-active">Travel &amp; Photos</a>
+        </nav>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ═══════════════════ MAIN ═══════════════════ -->
+  <main class="main-content">
+
+    <div class="travel-hero">
+      <h1><i class="fas fa-camera" style="color:var(--psu-sky);margin-right:0.5rem;font-size:1.6rem;"></i>Travel &amp; Photos</h1>
+      <p>Places visited, moments captured.</p>
+    </div>
+
+    <div class="add-photos-hint" id="add-photos-hint" style="display:none">
+      <i class="fas fa-info-circle"></i>
+      <span>To add photos: drop images in <code>img/travel/&lt;trip-name&gt;/</code> and update <code>data/travel.js</code> with the paths.</span>
+    </div>
+
+    <div class="travel-grid" id="travel-grid">
+      <!-- Rendered by JS -->
+    </div>
+
+  </main>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="site-footer">
+    <span>&copy; <span id="footer-year"></span> Mohammed (Md) Toufikuzzaman</span>
+    <span>Last updated: <span id="footer-updated"></span></span>
+  </footer>
+
+</div><!-- /.site-wrapper -->
+
+<!-- Data files -->
+<script src="data/profile.js"></script>
+<script src="data/travel.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Footer
+  document.getElementById("footer-year").textContent = new Date().getFullYear();
+  document.getElementById("footer-updated").textContent = PROFILE.lastUpdated || new Date().toLocaleDateString("en-US", {month:"long", day:"numeric", year:"numeric"});
+
+  // Render travel grid
+  (function renderTravel() {
+    const grid = document.getElementById("travel-grid");
+    const hint = document.getElementById("add-photos-hint");
+    if (!TRAVEL || TRAVEL.length === 0) {
+      grid.innerHTML = `<div class="travel-empty"><i class="fas fa-map-marked-alt"></i>No trips added yet — check back soon!</div>`;
+      return;
+    }
+
+    const hasPlaceholders = TRAVEL.some(t => !t.cover && t.photos.length === 0);
+    if (hasPlaceholders) hint.style.display = "flex";
+
+    grid.innerHTML = TRAVEL.map(trip => {
+      const coverHtml = trip.cover
+        ? `<img class="trip-cover" src="${trip.cover}" alt="${trip.title}" loading="lazy">`
+        : `<div class="trip-cover-placeholder"><i class="fas fa-image"></i><span>Photo coming soon</span></div>`;
+
+      const photosHtml = trip.photos.length > 0
+        ? `<div class="trip-photos-grid">${trip.photos.slice(0,6).map(p => `<img src="${p.src}" alt="${p.caption || ''}" loading="lazy">`).join("")}</div>`
+        : "";
+
+      return `
+        <div class="trip-card">
+          ${coverHtml}
+          <div class="trip-body">
+            <div class="trip-title">${trip.title}</div>
+            <div class="trip-meta">
+              <span><i class="fas fa-map-marker-alt"></i>${trip.location}</span>
+              <span><i class="fas fa-calendar-alt"></i>${trip.date}</span>
+            </div>
+            ${trip.description ? `<p class="trip-desc">${trip.description}</p>` : ""}
+            ${photosHtml}
+          </div>
+        </div>`;
+    }).join("");
+  })();
+</script>
+</body>
+</html>
