@@ -30,6 +30,9 @@ function renderSidebar() {
     `<i class="fas fa-map-marker-alt"></i><span>${p.location}</span>`;
 
   const linksEl = document.getElementById("sidebar-links");
+  // Remove old sidebar-info block if it exists (now rendered in sidebar-photo-wrap)
+  const oldInfo = document.querySelector(".sidebar-info");
+  if (oldInfo) oldInfo.remove();
   const defs = [
     { key: "cv",           icon: "fas fa-file-alt",        label: "Curriculum Vitae", href: () => p.links.cv, target: "_blank" },
     { key: "email",        icon: "fas fa-envelope",         label: p.links.email,      href: () => `mailto:${p.links.email}`, target: "_self" },
@@ -37,18 +40,13 @@ function renderSidebar() {
     { key: "github",       icon: "fab fa-github",            label: "GitHub",           href: () => p.links.github, target: "_blank" },
     { key: "linkedin",     icon: "fab fa-linkedin",          label: "LinkedIn",         href: () => p.links.linkedin, target: "_blank" },
     { key: "twitter",      icon: "fab fa-twitter",           label: "Twitter / X",      href: () => p.links.twitter, target: "_blank" },
-    { key: "buetProfile",  icon: null, logo: () => p.links.buetLogo, label: "BUET Profile", href: () => p.links.buetProfile, target: "_blank" },
+    { key: "buetProfile",  icon: "fas fa-university", label: "BUET Profile", href: () => p.links.buetProfile, target: "_blank" },
   ];
   linksEl.innerHTML = defs
     .filter(d => p.links[d.key])
-    .map(d => {
-      const iconHtml = d.logo && p.links[d.logo.toString()] !== undefined
-        ? `<img src="${d.logo()}" alt="" class="sidebar-logo-icon">`
-        : `<i class="${d.icon}"></i>`;
-      return `<a class="sidebar-link" href="${d.href()}" target="${d.target}" rel="noopener">
-        ${iconHtml}<span>${d.label}</span>
-      </a>`;
-    })
+    .map(d => `<a class="sidebar-link" href="${d.href()}" target="${d.target}" rel="noopener">
+      <i class="${d.icon}"></i><span>${d.label}</span>
+    </a>`)
     .join("");
 }
 

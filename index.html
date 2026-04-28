@@ -32,34 +32,37 @@
 
   <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
   <aside class="sidebar">
-    <img id="sidebar-photo" class="sidebar-photo" src="" alt="">
-
-    <div class="sidebar-info">
-      <div id="sidebar-name"   class="sidebar-name"></div>
-      <div id="sidebar-title"  class="sidebar-title"></div>
-      <div id="sidebar-dept"   class="sidebar-dept"></div>
+    <!-- Photo sits outside the scroll container so it never gets clipped -->
+    <div class="sidebar-photo-wrap">
+      <img id="sidebar-photo" class="sidebar-photo" src="" alt="">
+      <div id="sidebar-name"        class="sidebar-name"></div>
+      <div id="sidebar-title"       class="sidebar-title"></div>
+      <div id="sidebar-dept"        class="sidebar-dept"></div>
       <div id="sidebar-institution" class="sidebar-institution"></div>
-      <div id="sidebar-location"    class="sidebar-location" style="margin-top:0.25rem"></div>
+      <div id="sidebar-location"    class="sidebar-location"></div>
     </div>
 
-    <hr class="sidebar-divider">
+    <!-- Scrollable links + nav -->
+    <div class="sidebar-scroll">
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Links</div>
+        <div id="sidebar-links" class="sidebar-links"></div>
+      </div>
 
-    <!-- Social / Contact Links (populated by JS) -->
-    <div id="sidebar-links" class="sidebar-links"></div>
-
-    <hr class="sidebar-divider">
-
-    <!-- Navigation -->
-    <nav class="sidebar-nav">
-      <a href="#about">About</a>
-      <a href="#news">News</a>
-      <a href="#publications">Publications</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#services">Services</a>
-      <a href="#awards">Awards</a>
-    </nav>
+      <div class="sidebar-section">
+        <div class="sidebar-section-label">Navigate</div>
+        <nav class="sidebar-nav">
+          <a href="#about">About</a>
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#services">Services</a>
+          <a href="#awards">Awards</a>
+        </nav>
+      </div>
+    </div>
   </aside>
 
   <!-- ═══════════════════ MAIN ═══════════════════ -->

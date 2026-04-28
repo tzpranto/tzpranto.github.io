@@ -85,13 +85,21 @@ body { background: #c8d8e8; } /* visible outside the container */
   position: sticky;
   top: 0;
   height: 100vh;
-  overflow-y: auto;
+  /* overflow-y on a scroll wrapper must be on a CHILD to avoid clipping photo ring */
+  overflow: visible;
   display: flex;
   flex-direction: column;
-  /* Left accent as a box-shadow so it doesn't affect internal layout */
   border-right: 1px solid #7bbde0;
-  box-shadow: inset 5px 0 0 var(--psu-sky);
-  padding: 0 0 2rem 5px; /* compensate for the inset shadow width */
+}
+
+/* Inner scroll container so sidebar nav scrolls while photo stays */
+.sidebar-scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: visible;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
 }
 
 /* Photo area */
@@ -106,16 +114,16 @@ body { background: #c8d8e8; } /* visible outside the container */
 }
 
 .sidebar-photo {
-  width: 110px;
-  height: 110px;
+  width: 112px;
+  height: 112px;
   border-radius: 50%;
   object-fit: cover;
+  /* Border as outline so it doesn't affect layout or get clipped */
   border: 3px solid var(--psu-sky);
-  box-shadow: 0 0 0 4px rgba(0,156,222,.2), var(--shadow-md);
+  outline: 4px solid rgba(0,156,222,.25);
+  outline-offset: 2px;
   display: block;
-  /* Center within the padded area, safely away from the left border */
   margin: 0 auto 1rem;
-  position: relative;
 }
 
 .sidebar-name {
@@ -156,7 +164,7 @@ body { background: #c8d8e8; } /* visible outside the container */
 
 /* Links section */
 .sidebar-section {
-  padding: 1rem 1.2rem 0.4rem 1.5rem;
+  padding: 1rem 1.2rem 0.5rem 1.5rem;
 }
 .sidebar-section-label {
   font-size: 0.65rem;
