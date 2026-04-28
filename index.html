@@ -148,8 +148,11 @@
 <script>
   document.getElementById("footer-year").textContent = new Date().getFullYear();
   const lu = document.getElementById("footer-updated");
-  if (lu && typeof PROFILE !== "undefined" && PROFILE.lastUpdated) {
-    lu.textContent = "Last updated: " + PROFILE.lastUpdated;
+  if (lu) {
+    const d = new Date(document.lastModified);
+    const opts = { year: "numeric", month: "short", day: "numeric",
+                   hour: "2-digit", minute: "2-digit", timeZoneName: "short" };
+    lu.textContent = "Last updated: " + d.toLocaleString("en-US", opts);
   }
 </script>
 </body>
