@@ -37,13 +37,18 @@ function renderSidebar() {
     { key: "github",       icon: "fab fa-github",            label: "GitHub",           href: () => p.links.github, target: "_blank" },
     { key: "linkedin",     icon: "fab fa-linkedin",          label: "LinkedIn",         href: () => p.links.linkedin, target: "_blank" },
     { key: "twitter",      icon: "fab fa-twitter",           label: "Twitter / X",      href: () => p.links.twitter, target: "_blank" },
-    { key: "buetProfile",  icon: "fas fa-university",        label: "BUET Profile",     href: () => p.links.buetProfile, target: "_blank" },
+    { key: "buetProfile",  icon: null, logo: () => p.links.buetLogo, label: "BUET Profile", href: () => p.links.buetProfile, target: "_blank" },
   ];
   linksEl.innerHTML = defs
     .filter(d => p.links[d.key])
-    .map(d => `<a class="sidebar-link" href="${d.href()}" target="${d.target}" rel="noopener">
-      <i class="${d.icon}"></i><span>${d.label}</span>
-    </a>`)
+    .map(d => {
+      const iconHtml = d.logo && p.links[d.logo.toString()] !== undefined
+        ? `<img src="${d.logo()}" alt="" class="sidebar-logo-icon">`
+        : `<i class="${d.icon}"></i>`;
+      return `<a class="sidebar-link" href="${d.href()}" target="${d.target}" rel="noopener">
+        ${iconHtml}<span>${d.label}</span>
+      </a>`;
+    })
     .join("");
 }
 
@@ -70,6 +75,12 @@ function renderResearchInterests() {
   el.innerHTML = PROFILE.researchInterests
     .map(i => `<li>${i}</li>`)
     .join("");
+
+  const hobbiesEl = document.getElementById("hobbies-list");
+  if (PROFILE.hobbies && PROFILE.hobbies.length) {
+    hobbiesEl.innerHTML = `<h3 class="subsection-title">Other Interests</h3>
+      <ul>${PROFILE.hobbies.map(h => `<li>${h}</li>`).join("")}</ul>`;
+  }
 }
 
 /* ── News / Timeline ── */

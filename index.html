@@ -76,6 +76,7 @@
     <section class="section" id="interests">
       <h2 class="section-title">Research Interests</h2>
       <ul id="interests-list" class="interest-tags"></ul>
+      <div id="hobbies-list" style="margin-top:1.2rem"></div>
     </section>
 
     <!-- News -->
@@ -129,6 +130,14 @@
   </main>
 </div>
 
+<!-- Fixed Footer -->
+<footer class="site-footer">
+  <span>&copy; <span id="footer-year"></span> Mohammed (Md) Toufikuzzaman &nbsp;·&nbsp; Pennsylvania State University</span>
+  <span class="footer-links">
+    <a href="mailto:mpt5763@psu.edu">mpt5763@psu.edu</a>
+  </span>
+</footer>
+
 <!-- Data files (edit these to update content) -->
 <script src="data/profile.js"></script>
 <script src="data/news.js"></script>
@@ -137,5 +146,6 @@
 
 <!-- Renderer -->
 <script src="js/main.js"></script>
+<script>document.getElementById("footer-year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
