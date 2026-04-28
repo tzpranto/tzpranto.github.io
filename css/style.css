@@ -137,7 +137,7 @@ body { background: #c8d8e8; } /* visible outside the container */
 
 .sidebar-title {
   font-size: 0.8rem;
-  color: var(--psu-sky);
+  color: var(--psu-beaver-blue);
   font-weight: 700;
   letter-spacing: 0.02em;
 }
