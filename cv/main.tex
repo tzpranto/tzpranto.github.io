@@ -1,0 +1,178 @@
+\documentclass[letterpaper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[tmargin=0.7in, bmargin=0.5in, lmargin=0.7in, rmargin=0.7in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{titlesec}
+\usepackage[inline]{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage{tgcursor}
+\setlist{leftmargin=5.5mm}
+
+\pagenumbering{gobble}
+
+\makeatletter         
+\newcommand\website[1]{\renewcommand\@website{#1}}
+\newcommand\@website{}
+
+\newcommand\email[1]{\renewcommand\@email{#1}}
+\newcommand\@email{}
+
+\newcommand\googlescholarlink[1]{\renewcommand\@googlescholarlink{#1}}
+\newcommand\@googlescholarlink{}
+
+\newcommand\githublink[1]{\renewcommand\@githublink{#1}}
+\newcommand\@githublink{}
+
+
+
+\newcommand{\fontref}[2]{{\fontfamily{cmtt}\selectfont\href{#1}{#2}}}       
+
+\newcommand\mobile[1]{\renewcommand\@mobile{#1}}
+\newcommand\@mobile{}
+
+\newcommand\googlescholar[1]{\fontref{#1}{[Google Scholar]}}
+\newcommand\github[1]{\fontref{#1}{[GitHub]}}
+%\newcommand\@googlescholar{}
+\makeatother
+
+\makeatletter         
+\renewcommand\maketitle{
+{\raggedright % Note the extra {
+%\begin{center}
+{\Large \bfseries \@author }
+\hfill {\large Email:{\fontfamily{cmtt} \selectfont \href{mailto:\@email}{\@email} } }\\[1ex]
+{\large Website: {\fontfamily{cmtt}\selectfont \href{\@website}{\@website}}} 
+\hfill {\large Contact: {\fontfamily{cmtt}\selectfont \@mobile}}  \\
+\hfill {\large \googlescholar{\@googlescholarlink} \github{\@githublink}}
+%\end{center}
+}} % Note the extra }
+\makeatother
+
+\titleformat{\section}
+{\Large \scshape}
+{}%
+{0.5ex}%
+{}%
+[{\titlerule[0.4pt]}]
+
+\titleformat{\subsection}
+{\bfseries \large}
+{}%
+{0.5ex}%
+{}%
+
+
+\newcommand{\buet}{Bangladesh University of Engineering and Technology (BUET)}
+
+\newcommand{\myitemize}[4]{
+\begin{itemize}
+    \item \textbf{#1} \hfill #2\\
+    \textit{#3} \hfill #4
+\end{itemize}
+\vspace*{-6.5mm}
+} % Note the extra }
+
+\newcommand{\myseconditemize}[6]{
+\begin{itemize}
+    \item \textbf{#1} \hfill #2\\
+    \textit{#3} \hfill #4\\
+    #5 \textit{#6}
+\end{itemize}
+\vspace*{-6.5mm}
+} % Note the extra }
+
+\newcommand{\mythirditemize}[2]{
+\begin{itemize}
+    \item \textbf{#1} \\
+    {#2}
+\end{itemize}
+\vspace*{-6.5mm}
+} % Note the extra }
+
+\newcommand{\myfourthitemize}[2]{
+\begin{itemize}
+    \item \textbf{#1}: {#2}
+\end{itemize}
+\vspace*{-5mm}
+} % Note the extra }
+
+\newcommand{\myfifthitemize}[5]{
+\begin{itemize}
+    \item \textbf{#1} \hfill #2\\
+    \textit{#3} \hfill #4
+    #5
+\end{itemize}
+\vspace*{-6.5mm}
+}
+
+\newcommand{\twocolumnitemize}[2]{
+\begin{tabular}{p{0.475\textwidth}p{0.475\textwidth}}
+\begin{itemize}[leftmargin=3.5mm]
+    \item #1 
+\end{itemize}&
+\begin{itemize}
+    \item #2 
+\end{itemize}
+\end{tabular}\vspace*{-1.3cm}\\
+}
+
+\newcommand{\threecolumnitemize}[3]{
+\begin{tabular}{p{0.32\textwidth}p{0.275\textwidth}p{0.33\textwidth}}
+\begin{itemize}[leftmargin=3.5mm]
+    \item #1 
+\end{itemize}&
+\begin{itemize}
+    \item #2 
+\end{itemize}&
+\begin{itemize}
+    \item #3 
+\end{itemize}
+\end{tabular}\vspace*{-1.2cm}\\
+}
+
+
+
+\author{Mohammed(Md) Toufikuzzaman}
+\website{https://tzpranto.github.io/}
+\email{md.toufikzaman@gmail.com, mpt5763@psu.edu}
+% \email{mpt5763@psu.edu}
+\mobile{+18142803157}
+\googlescholarlink{https://scholar.google.com/citations?user=-8m6JVAAAAAJ\&hl=en}
+\githublink{https://github.com/tzpranto}
+
+
+\begin{document}
+
+\maketitle
+
+%Applicaton Version
+\input{about}
+\input{research_interest}
+\input{education}
+\input{publications}
+\input{research_experience}
+\input{professional_experience}
+% \newpage
+\input{teaching_experience}
+\input{awards}
+\input{technical_skills}
+\input{selected_courses}
+\input{services}
+\input{references}
+
+%Business Version
+% \input{professional_experience}
+% \input{education}
+% \input{services}
+% \input{technical_skills}
+
+% \input{teaching_experience}
+% \input{research_interest}
+% \input{publications}
+% \input{research_experience}
+
+% \input{awards}
+% \input{selected_courses}
+% \input{references}
+
+\end{document}

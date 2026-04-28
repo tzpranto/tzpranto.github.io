@@ -27,21 +27,21 @@ function renderSidebar() {
   document.getElementById("sidebar-dept").textContent = p.department;
   document.getElementById("sidebar-institution").textContent = p.institution;
   document.getElementById("sidebar-location").innerHTML =
-    `<i class="fas fa-map-marker-alt" style="font-size:0.75rem;margin-right:3px"></i>${p.location}`;
+    `<i class="fas fa-map-marker-alt"></i><span>${p.location}</span>`;
 
   const linksEl = document.getElementById("sidebar-links");
   const defs = [
-    { key: "email",        icon: "fas fa-envelope",      label: "Email",          href: () => `mailto:${p.links.email}` },
-    { key: "googleScholar",icon: "fas fa-graduation-cap", label: "Google Scholar", href: () => p.links.googleScholar },
-    { key: "github",       icon: "fab fa-github",         label: "GitHub",         href: () => p.links.github },
-    { key: "linkedin",     icon: "fab fa-linkedin",       label: "LinkedIn",       href: () => p.links.linkedin },
-    { key: "twitter",      icon: "fab fa-twitter",        label: "Twitter / X",    href: () => p.links.twitter },
-    { key: "cv",           icon: "fas fa-file-alt",       label: "CV",             href: () => p.links.cv },
-    { key: "buetProfile",  icon: "fas fa-university",     label: "BUET Profile",   href: () => p.links.buetProfile },
+    { key: "cv",           icon: "fas fa-file-alt",        label: "Curriculum Vitae", href: () => p.links.cv, target: "_blank" },
+    { key: "email",        icon: "fas fa-envelope",         label: p.links.email,      href: () => `mailto:${p.links.email}`, target: "_self" },
+    { key: "googleScholar",icon: "fas fa-graduation-cap",   label: "Google Scholar",   href: () => p.links.googleScholar, target: "_blank" },
+    { key: "github",       icon: "fab fa-github",            label: "GitHub",           href: () => p.links.github, target: "_blank" },
+    { key: "linkedin",     icon: "fab fa-linkedin",          label: "LinkedIn",         href: () => p.links.linkedin, target: "_blank" },
+    { key: "twitter",      icon: "fab fa-twitter",           label: "Twitter / X",      href: () => p.links.twitter, target: "_blank" },
+    { key: "buetProfile",  icon: "fas fa-university",        label: "BUET Profile",     href: () => p.links.buetProfile, target: "_blank" },
   ];
   linksEl.innerHTML = defs
     .filter(d => p.links[d.key])
-    .map(d => `<a class="sidebar-link" href="${d.href()}" target="${d.key === 'email' ? '_self' : '_blank'}" rel="noopener">
+    .map(d => `<a class="sidebar-link" href="${d.href()}" target="${d.target}" rel="noopener">
       <i class="${d.icon}"></i><span>${d.label}</span>
     </a>`)
     .join("");

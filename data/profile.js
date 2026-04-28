@@ -20,7 +20,7 @@ const PROFILE = {
     linkedin: "https://linkedin.com/in/toufik-zaman-pranto",
     twitter: "https://twitter.com/toufik_pranto",
     buetProfile: "https://cse.buet.ac.bd/faculty/faculty_detail/toufikuzzaman",
-    // cv: "",  // Add CV link when ready
+    cv: "cv/main.pdf",
   },
   erdosNumber: {
     number: 4,
