@@ -88,9 +88,10 @@ body { background: #c8d8e8; } /* visible outside the container */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 0 0 2rem;
-  border-left: 5px solid var(--psu-sky);
+  /* Left accent as a box-shadow so it doesn't affect internal layout */
   border-right: 1px solid #7bbde0;
+  box-shadow: inset 5px 0 0 var(--psu-sky);
+  padding: 0 0 2rem 5px; /* compensate for the inset shadow width */
 }
 
 /* Photo area */
@@ -100,17 +101,21 @@ body { background: #c8d8e8; } /* visible outside the container */
   padding: 2.5rem 1.6rem 1.4rem 1.6rem;
   border-bottom: 1px solid #7bbde0;
   text-align: center;
+  /* Prevent photo circle from clipping into the left accent border */
+  overflow: visible;
 }
 
 .sidebar-photo {
-  width: 118px;
-  height: 118px;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--psu-sky);
-  box-shadow: 0 0 0 5px rgba(0,156,222,.15), var(--shadow-md);
+  box-shadow: 0 0 0 4px rgba(0,156,222,.2), var(--shadow-md);
   display: block;
+  /* Center within the padded area, safely away from the left border */
   margin: 0 auto 1rem;
+  position: relative;
 }
 
 .sidebar-name {
