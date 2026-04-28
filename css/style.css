@@ -261,6 +261,56 @@ li { margin-bottom: 0.25em; }
 /* ── About ── */
 .about-bio { font-size: 1rem; color: var(--text); }
 
+/* ── Featured / Press Callout ── */
+.about-featured { display: flex; flex-direction: column; gap: 0.8rem; }
+
+.featured-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--gold);
+  text-decoration: none;
+  transition: box-shadow var(--transition), transform var(--transition);
+  box-shadow: var(--shadow);
+}
+.featured-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.featured-badge {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  background: rgba(201,168,76,.15);
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  margin-top: 0.1rem;
+}
+.featured-badge i { margin-right: 0.3rem; }
+
+.featured-text {
+  font-size: 0.9rem;
+  color: var(--sidebar-text);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.featured-arrow {
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  flex-shrink: 0;
+  align-self: center;
+}
+
 /* ── Research Interests ── */
 .interest-tags {
   display: flex;
