@@ -22,7 +22,12 @@ function renderSidebar() {
 
   document.getElementById("sidebar-photo").src = p.photo;
   document.getElementById("sidebar-photo").alt = p.name;
-  document.getElementById("sidebar-name").textContent = p.name;
+  const nameEl = document.getElementById("sidebar-name");
+  if (p.preferredName) {
+    nameEl.innerHTML = `<span class="sidebar-preferred-name">${p.preferredName}</span><span class="sidebar-full-name">${p.name}</span>`;
+  } else {
+    nameEl.textContent = p.name;
+  }
   document.getElementById("sidebar-title").textContent = p.title;
   document.getElementById("sidebar-dept").textContent = p.department;
   document.getElementById("sidebar-institution").textContent = p.institution;
