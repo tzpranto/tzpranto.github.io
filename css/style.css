@@ -138,9 +138,8 @@ body { background: #c8d8e8; } /* visible outside the container */
 .sidebar-title {
   font-size: 0.8rem;
   color: var(--psu-sky);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .sidebar-dept,
