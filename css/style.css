@@ -282,6 +282,11 @@ body { background: #c8d8e8; } /* visible outside the container */
 /* ── Featured / Press Callout ── */
 .about-featured { display: flex; flex-direction: column; gap: 0.8rem; }
 
+@keyframes featured-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,156,222,0), var(--shadow); }
+  50%       { box-shadow: 0 0 0 5px rgba(0,156,222,.18), var(--shadow); }
+}
+
 .featured-card {
   display: flex;
   align-items: flex-start;
@@ -290,6 +295,7 @@ body { background: #c8d8e8; } /* visible outside the container */
   background: var(--accent-mid);
   border-radius: var(--radius-lg);
   border-left: 4px solid var(--psu-sky);
+  animation: featured-glow 3s ease-in-out infinite;
   text-decoration: none;
   transition: box-shadow var(--transition), transform var(--transition);
   box-shadow: var(--shadow);
@@ -302,18 +308,35 @@ body { background: #c8d8e8; } /* visible outside the container */
 
 .featured-badge {
   flex-shrink: 0;
-  font-size: 0.7rem;
-  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.65rem;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--psu-beaver-blue);
-  background: var(--accent-mid);
-  padding: 0.25rem 0.65rem;
-  border-radius: 20px;
   white-space: nowrap;
-  margin-top: 0.1rem;
+  margin-top: 0.05rem;
+  min-width: 64px;
+  text-align: center;
 }
-.featured-badge i { margin-right: 0.3rem; }
+.featured-badge .badge-star {
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--psu-sky);
+  filter: drop-shadow(0 0 4px rgba(0,156,222,.5));
+}
+.featured-badge .badge-label {
+  background: var(--psu-beaver-blue);
+  color: #fff;
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
 
 .featured-text {
   font-size: 0.9rem;

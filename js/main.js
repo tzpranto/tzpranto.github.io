@@ -61,8 +61,11 @@ function renderAbout() {
   }
   featuredEl.innerHTML = PROFILE.featured.map(f => `
     <a class="featured-card" href="${f.url}" target="_blank" rel="noopener">
-      <span class="featured-badge"><i class="fas fa-newspaper"></i> ${f.label}</span>
-      <span class="featured-text">${f.text}</span>
+      <span class="featured-badge">
+        <span class="badge-star">★</span>
+        <span class="badge-label">Featured</span>
+      </span>
+      <span class="featured-text"><strong>${f.label}</strong> &nbsp;${f.text}</span>
       <span class="featured-arrow">↗</span>
     </a>`).join("");
 }

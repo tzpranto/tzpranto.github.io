@@ -21,7 +21,7 @@ My research centers on <strong>trustworthy and reliable AI</strong> — particul
   featured: [
     {
       label: "Penn State News",
-      text: `Featured: Team Lion-0xA — 1 of 10 global finalists in the <strong>Amazon Nova AI Challenge 2026</strong>. Co-leading autonomous red-team AI research supported by a quarter-million-dollar Amazon grant.`,
+      text: `Team Lion-0xA — 1 of 10 global finalists in the <strong>Amazon Nova AI Challenge 2026</strong>. Co-leading autonomous red-team AI research supported by a quarter-million-dollar Amazon grant.`,
       url: "https://www.psu.edu/news/research/story/ist-engineering-students-competing-global-amazon-nova-ai-challenge",
     },
   ],
