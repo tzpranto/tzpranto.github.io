@@ -28,10 +28,24 @@
 </head>
 
 <body>
+
+  <!-- ═══════════════ MOBILE TOP BAR (visible on small screens) ═══════════════ -->
+  <header class="mobile-topbar" id="mobile-topbar">
+    <img id="topbar-photo" class="topbar-photo" src="" alt="">
+    <div class="topbar-title">
+      <span id="topbar-name" class="topbar-name"></span>
+      <span id="topbar-sub"  class="topbar-sub"></span>
+    </div>
+    <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+      <span class="hamburger"></span>
+    </button>
+  </header>
+  <div id="mobile-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
+
 <div class="site-wrapper">
 
   <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
-  <aside class="sidebar">
+  <aside class="sidebar" id="mobile-drawer">
     <!-- Photo sits outside the scroll container so it never gets clipped -->
     <div class="sidebar-photo-wrap">
       <img id="sidebar-photo" class="sidebar-photo" src="" alt="">
@@ -151,6 +165,36 @@
 
 <!-- Renderer -->
 <script src="js/main.js"></script>
+
+<!-- Mobile nav drawer -->
+<script>
+  (function () {
+    const btn      = document.getElementById("mobile-menu-btn");
+    const drawer   = document.getElementById("mobile-drawer");
+    const backdrop = document.getElementById("mobile-backdrop");
+    if (!btn || !drawer) return;
+
+    function setOpen(open) {
+      document.body.classList.toggle("nav-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+    }
+    btn.addEventListener("click", () => setOpen(!document.body.classList.contains("nav-open")));
+    backdrop.addEventListener("click", () => setOpen(false));
+    drawer.addEventListener("click", (e) => {
+      if (e.target.closest("a[href^='#'], a[href^='mailto:']") || e.target.closest(".sidebar-nav a")) {
+        setOpen(false);
+      }
+    });
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+    // Close if the viewport grows past the mobile breakpoint
+    const mq = window.matchMedia("(min-width: 961px)");
+    mq.addEventListener?.("change", (e) => { if (e.matches) setOpen(false); });
+  })();
+</script>
 <script>
   document.getElementById("footer-year").textContent = new Date().getFullYear();
   const lu = document.getElementById("footer-updated");

@@ -22,6 +22,14 @@ function renderSidebar() {
 
   document.getElementById("sidebar-photo").src = p.photo;
   document.getElementById("sidebar-photo").alt = p.name;
+
+  // Mobile top-bar mirrors sidebar identity
+  const tbPhoto = document.getElementById("topbar-photo");
+  const tbName  = document.getElementById("topbar-name");
+  const tbSub   = document.getElementById("topbar-sub");
+  if (tbPhoto) { tbPhoto.src = p.photo; tbPhoto.alt = p.name; }
+  if (tbName)  tbName.textContent = p.preferredName || p.name;
+  if (tbSub)   tbSub.textContent  = [p.title, p.institution].filter(Boolean).join(" · ");
   const nameEl = document.getElementById("sidebar-name");
   if (p.preferredName) {
     nameEl.innerHTML = `<span class="sidebar-preferred-name">${p.preferredName}</span><span class="sidebar-full-name">${p.name}</span>`;

@@ -62,7 +62,7 @@ const EDUCATION = [
 
 const AWARDS = [
   "<strong>Amazon Nova AI Challenge 2026</strong> — Co-led Penn State's Team Lion-0xA, selected as 1 of 10 global finalist teams; supported by a quarter-million-dollar Amazon grant.",
-  "<strong>Penn State College of Engineering Scholarship</strong> ($4,000) — awarded as a nationally competitive applicant for the Fall 2024 admission cycle.",
+  "<strong>Penn State College of Engineering Scholarship</strong> ($4,000) — awarded as a competitive applicant for the Fall 2024 admission cycle.",
   "Dean's List in all four levels and university talent-pool scholarship in all eight terms (B.Sc., BUET).",
   "Board General Scholarship (H.S.C.).",
   "Board General Scholarship (S.S.C.).",
