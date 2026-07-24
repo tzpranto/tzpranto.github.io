@@ -8,8 +8,9 @@ const PROFILE = {
   location: "State College, PA",
   photo: "img/Toufikuzzaman.JPG",
   bio: `I am a second-year Ph.D. student at the <a href="https://www.eecs.psu.edu/departments/EECS-Departments-Computer-Science-Engineering3.aspx">Department of Computer Science and Engineering (CSE)</a> of <a href="https://www.psu.edu/">Pennsylvania State University</a>, advised by <a href="https://pike.psu.edu/dongwon/">Prof. Dongwon Lee</a> and co-advised by <a href="https://www.cse.psu.edu/~kxc104/">Prof. Kyusun Choi</a>. Previously, I obtained my bachelor's and master's degrees from the <a href="https://cse.buet.ac.bd/">Department of CSE</a>, <a href="https://www.buet.ac.bd/">Bangladesh University of Engineering and Technology (BUET)</a>, where I also served as a <a href="https://cse.buet.ac.bd/faculty/faculty_detail/toufikuzzaman">Lecturer and Assistant Professor</a>.<br><br>
-My research focuses on <strong>trustworthy and reliable AI</strong>, with a particular interest in understanding how knowledge and facts are stored, retrieved, and manipulated within Large Language Models (LLMs) — spanning mechanistic interpretability, knowledge editing, and LLM unlearning. I also work on applying <strong>agentic AI systems for red-team testing automation</strong>, co-leading one of five globally selected red teams at the Amazon Nova AI Challenge 2026.`,
+My research intersects <strong>AI and cybersecurity</strong>, with a particular focus on the <strong>security and trustworthiness of Large Language Models (LLMs) and their surrounding ecosystem</strong>. I am also co-leading one of ten globally selected red teams at the Amazon Nova AI Challenge 2026, working on autonomous multi-agent red teaming of web applications.`,
   researchInterests: [
+    "AI and Cybersecurity",
     "Trustworthy & Reliable AI",
     "Knowledge in LLMs — Storage, Retrieval & Manipulation",
     "Precise LLM Unlearning (Bi-Level Optimization)",

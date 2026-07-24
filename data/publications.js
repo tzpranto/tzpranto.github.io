@@ -1,6 +1,14 @@
 // Publications list. Most recent first.
 const PUBLICATIONS = [
   {
+    authors: "Tianwei Wu, Abdullah Al Ishtiaq, Tianchang Yang, Yilu Dong, Kai Tu, Zeyu Song, Ridwanul Hasan Tanvir, <strong>Md. Toufikuzzaman</strong>, Shagufta Mehnaz, Syed Rafiul Hussain",
+    title: "Guardians of the Air: In-Device Detection of 5G Control-Plane Threats",
+    venue: "IEEE Symposium on Security and Privacy (S&P), 2026",
+    links: [
+      { label: "doi", url: "https://doi.org/10.1109/SP63933.2026.00204" },
+    ],
+  },
+  {
     authors: "Mujtahid Akon, <strong>Md. Toufikuzzaman</strong>, Syed Rafiul Hussain",
     title: "From Control to Chaos: A Comprehensive Formal Analysis of 5G's Access Control",
     venue: "IEEE Symposium on Security and Privacy (S&P), 2025",

@@ -4,7 +4,7 @@ const NEWS = [
   {
     date: "2026.04",
     type: "pub",
-    text: `Co-authored paper accepted at <strong>IEEE Symposium on Security and Privacy (S&amp;P) 2026</strong>. Details coming soon.`,
+    text: `Co-authored paper <em>"Guardians of the Air: In-Device Detection of 5G Control-Plane Threats"</em> accepted at <strong>IEEE Symposium on Security and Privacy (S&amp;P) 2026</strong>.`,
   },
   {
     date: "2025.12",

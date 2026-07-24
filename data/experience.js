@@ -1,10 +1,10 @@
 const EXPERIENCE = [
   {
-    role: "Graduate Assistant (RA/TA)",
+    role: "Research Assistant",
     org: "Department of CSE, Pennsylvania State University",
     orgUrl: "https://www.psu.edu/",
     period: "August 2024 – Present",
-    description: `Working with <a href="https://pike.psu.edu/dongwon/">Prof. Dongwon Lee</a> (<a href="https://pike.psu.edu/">PIKE Lab</a>) and <a href="https://www.cse.psu.edu/~kxc104/">Prof. Kyusun Choi</a> on trustworthy AI and LLM unlearning.`,
+    description: `Working with <a href="https://pike.psu.edu/dongwon/">Prof. Dongwon Lee</a> (<a href="https://pike.psu.edu/">PIKE Lab</a>) and <a href="https://www.cse.psu.edu/~kxc104/">Prof. Kyusun Choi</a> on the security and trustworthiness of LLMs and their surrounding ecosystem, including LLM unlearning (supervised by Prof. Dongwon Lee and Prof. Ahmad Mousavi).`,
   },
   {
     role: "Faculty Member (on Study Leave)",
@@ -61,6 +61,8 @@ const EDUCATION = [
 ];
 
 const AWARDS = [
+  "<strong>Amazon Nova AI Challenge 2026</strong> — Co-led Penn State's Team Lion-0xA, selected as 1 of 10 global finalist teams; supported by a quarter-million-dollar Amazon grant.",
+  "<strong>Penn State College of Engineering Scholarship</strong> ($4,000) — awarded as a nationally competitive applicant for the Fall 2024 admission cycle.",
   "Dean's List in all four levels and university talent-pool scholarship in all eight terms (B.Sc., BUET).",
   "Board General Scholarship (H.S.C.).",
   "Board General Scholarship (S.S.C.).",
@@ -86,6 +88,7 @@ const TEACHING = [
 ];
 
 const SERVICES = [
+  "<strong>Reviewer</strong> — IEEE Symposium on Security and Privacy (S&P), External Reviewer (2025); BMC Research Notes, Springer Nature (2020).",
   "Technical Committee Member of Investment Promotion & Financing Facility II (IPFF II) Project of Bangladesh Bank (Funded by the World Bank).",
   "Vulnerability Assessment and Penetration Testing of Android, iOS and Web Applications and IT Infrastructures.",
   "Consultation on Establishment of Security Operations Center (SOC) in a government organization of Bangladesh.",
