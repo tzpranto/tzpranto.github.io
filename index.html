@@ -6,13 +6,25 @@
   <meta name="description" content="Personal academic website of Mohammed (Md) Toufikuzzaman, PhD student at Penn State University.">
   <title>Md. Toufikuzzaman</title>
 
-  <!-- Google Fonts -->
+  <!-- Roboto + Roboto Slab + Material Symbols (Google's fonts for Material Web) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Material Web (M3) via ESM CDN -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "https://esm.run/@material/web/"
+    }
+  }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
 
   <!-- Site Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
@@ -29,181 +41,155 @@
 
 <body>
 
-  <!-- ═══════════════ MOBILE TOP BAR (visible on small screens) ═══════════════ -->
-  <header class="mobile-topbar" id="mobile-topbar">
+  <!-- ═══════════════ TOP APP BAR ═══════════════ -->
+  <header class="top-bar" id="top-bar">
+    <md-icon-button id="menu-btn" aria-label="Open navigation menu" aria-controls="nav-drawer" aria-expanded="false">
+      <md-icon>menu</md-icon>
+    </md-icon-button>
     <img id="topbar-photo" class="topbar-photo" src="" alt="">
     <div class="topbar-title">
       <span id="topbar-name" class="topbar-name"></span>
       <span id="topbar-sub"  class="topbar-sub"></span>
     </div>
-    <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
-      <span class="hamburger"></span>
-    </button>
+    <div class="topbar-actions">
+      <md-icon-button id="cv-btn" aria-label="Curriculum Vitae" href="#" target="_blank">
+        <md-icon>description</md-icon>
+      </md-icon-button>
+      <md-icon-button id="email-btn" aria-label="Email">
+        <md-icon>mail</md-icon>
+      </md-icon-button>
+    </div>
   </header>
-  <div id="mobile-backdrop" class="mobile-backdrop" aria-hidden="true"></div>
 
-<div class="site-wrapper">
+  <div id="scrim" class="scrim" aria-hidden="true"></div>
 
-  <!-- ═══════════════════ SIDEBAR ═══════════════════ -->
-  <aside class="sidebar" id="mobile-drawer">
-    <!-- Photo sits outside the scroll container so it never gets clipped -->
-    <div class="sidebar-photo-wrap">
-      <img id="sidebar-photo" class="sidebar-photo" src="" alt="">
-      <div id="sidebar-name"        class="sidebar-name"></div>
-      <div id="sidebar-title"       class="sidebar-title"></div>
-      <div id="sidebar-dept"        class="sidebar-dept"></div>
-      <div id="sidebar-institution" class="sidebar-institution"></div>
-      <div id="sidebar-location"    class="sidebar-location"></div>
+  <!-- ═══════════════ NAVIGATION DRAWER ═══════════════ -->
+  <aside class="drawer" id="nav-drawer">
+    <div class="drawer-header">
+      <img id="drawer-photo" class="drawer-photo" src="" alt="">
+      <div id="drawer-name" class="drawer-name md-typescale-title-large"></div>
+      <div id="drawer-sub"  class="drawer-sub md-typescale-body-small"></div>
+      <div id="drawer-loc"  class="drawer-loc md-typescale-body-small"></div>
     </div>
 
-    <!-- Scrollable links + nav -->
-    <div class="sidebar-scroll">
-      <div class="sidebar-section">
-        <div class="sidebar-section-label">Links</div>
-        <div id="sidebar-links" class="sidebar-links"></div>
-      </div>
+    <md-divider></md-divider>
 
-      <div class="sidebar-section">
-        <div class="sidebar-section-label">Navigate</div>
-        <nav class="sidebar-nav">
-          <a href="#about">About</a>
-          <a href="#news">News</a>
-          <a href="#publications">Publications</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#teaching">Teaching</a>
-          <a href="#services">Services</a>
-          <a href="#awards">Awards</a>
-          <!-- Travel page hidden for now — restore by uncommenting:
-          <a href="travel.html"><i class="fas fa-camera" style="margin-right:0.35rem;font-size:0.8rem;"></i>Travel &amp; Photos</a>
-          -->
-        </nav>
-      </div>
-    </div>
+    <div class="drawer-section-label md-typescale-label-small">Links</div>
+    <md-list id="drawer-links" class="drawer-list"></md-list>
+
+    <md-divider></md-divider>
+
+    <div class="drawer-section-label md-typescale-label-small">Navigate</div>
+    <md-list id="drawer-nav" class="drawer-list"></md-list>
   </aside>
 
-  <!-- ═══════════════════ MAIN ═══════════════════ -->
+  <!-- ═══════════════ MAIN ═══════════════ -->
   <main class="main-content">
 
-    <!-- About -->
     <section class="section" id="about">
-      <h2 class="section-title">About</h2>
-      <p id="about-bio" class="about-bio"></p>
-      <div id="about-featured" class="about-featured" style="margin-top:1.4rem"></div>
+      <h2 class="section-title md-typescale-headline-medium">About</h2>
+      <p id="about-bio" class="about-bio md-typescale-body-large"></p>
+      <div id="about-featured" class="about-featured"></div>
     </section>
 
-    <!-- Research Interests -->
     <section class="section" id="interests">
-      <h2 class="section-title">Research Interests</h2>
-      <ul id="interests-list" class="interest-tags"></ul>
-      <div id="hobbies-list" style="margin-top:1.2rem"></div>
+      <h2 class="section-title md-typescale-headline-medium">Research Interests</h2>
+      <md-chip-set id="interests-list" class="interest-chips"></md-chip-set>
+      <div id="hobbies-list" class="hobbies-block"></div>
     </section>
 
-    <!-- News -->
     <section class="section" id="news">
-      <h2 class="section-title">News</h2>
+      <h2 class="section-title md-typescale-headline-medium">News</h2>
       <div id="news-list"></div>
     </section>
 
-    <!-- Publications -->
     <section class="section" id="publications">
-      <h2 class="section-title">
+      <h2 class="section-title md-typescale-headline-medium">
         Publications
-        <a href="https://scholar.google.com/citations?user=-8m6JVAAAAAJ&hl=en" target="_blank" rel="noopener">
-          Google Scholar ↗
+        <a class="section-title-link" href="https://scholar.google.com/citations?user=-8m6JVAAAAAJ&hl=en" target="_blank" rel="noopener">
+          Google Scholar
+          <md-icon aria-hidden="true">open_in_new</md-icon>
         </a>
       </h2>
       <div id="pub-list"></div>
-      <div id="erdos-note" class="erdos-note" style="display:none"></div>
+      <div id="erdos-note" class="erdos-note" hidden></div>
     </section>
 
-    <!-- Experience -->
     <section class="section" id="experience">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title md-typescale-headline-medium">Experience</h2>
       <div id="exp-list"></div>
     </section>
 
-    <!-- Education -->
     <section class="section" id="education">
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title md-typescale-headline-medium">Education</h2>
       <div id="edu-list"></div>
     </section>
 
-    <!-- Teaching -->
     <section class="section" id="teaching">
-      <h2 class="section-title">Teaching Experience <span style="font-size:0.7rem;font-weight:400;color:var(--text-muted)">[Selected]</span></h2>
+      <h2 class="section-title md-typescale-headline-medium">Teaching Experience <span class="section-subhint">[Selected]</span></h2>
       <div id="teaching-list"></div>
     </section>
 
-    <!-- Professional Services -->
     <section class="section" id="services">
-      <h2 class="section-title">Professional Services <span style="font-size:0.7rem;font-weight:400;color:var(--text-muted)">[Selected]</span></h2>
+      <h2 class="section-title md-typescale-headline-medium">Professional Services <span class="section-subhint">[Selected]</span></h2>
       <div id="services-list"></div>
     </section>
 
-    <!-- Awards -->
     <section class="section" id="awards">
-      <h2 class="section-title">Awards &amp; Honors</h2>
+      <h2 class="section-title md-typescale-headline-medium">Awards &amp; Honors</h2>
       <div id="awards-list"></div>
     </section>
 
   </main>
-</div>
 
-<!-- Fixed Footer -->
-<footer class="site-footer">
-  <span>&copy; <span id="footer-year"></span> Mohammed (Md) Toufikuzzaman &nbsp;·&nbsp; Pennsylvania State University</span>
-  <span id="footer-updated" class="footer-updated"></span>
-  <span class="footer-links"><a href="mailto:mpt5763@psu.edu">mpt5763@psu.edu</a></span>
-</footer>
+  <!-- Footer -->
+  <footer class="site-footer md-typescale-label-small">
+    <span>&copy; <span id="footer-year"></span> Mohammed (Md) Toufikuzzaman &nbsp;·&nbsp; Pennsylvania State University</span>
+    <span id="footer-updated" class="footer-updated"></span>
+    <span class="footer-links"><a href="mailto:mpt5763@psu.edu">mpt5763@psu.edu</a></span>
+  </footer>
 
-<!-- Data files (edit these to update content) -->
-<script src="data/profile.js"></script>
-<script src="data/news.js"></script>
-<script src="data/publications.js"></script>
-<script src="data/experience.js"></script>
+  <!-- Data files -->
+  <script src="data/profile.js"></script>
+  <script src="data/news.js"></script>
+  <script src="data/publications.js"></script>
+  <script src="data/experience.js"></script>
 
-<!-- Renderer -->
-<script src="js/main.js"></script>
+  <!-- Renderer -->
+  <script src="js/main.js"></script>
 
-<!-- Mobile nav drawer -->
-<script>
-  (function () {
-    const btn      = document.getElementById("mobile-menu-btn");
-    const drawer   = document.getElementById("mobile-drawer");
-    const backdrop = document.getElementById("mobile-backdrop");
-    if (!btn || !drawer) return;
+  <!-- Drawer open/close controller -->
+  <script>
+    (function () {
+      const btn    = document.getElementById("menu-btn");
+      const drawer = document.getElementById("nav-drawer");
+      const scrim  = document.getElementById("scrim");
+      if (!btn || !drawer) return;
 
-    function setOpen(open) {
-      document.body.classList.toggle("nav-open", open);
-      btn.setAttribute("aria-expanded", open ? "true" : "false");
-      backdrop.setAttribute("aria-hidden", open ? "false" : "true");
-    }
-    btn.addEventListener("click", () => setOpen(!document.body.classList.contains("nav-open")));
-    backdrop.addEventListener("click", () => setOpen(false));
-    drawer.addEventListener("click", (e) => {
-      if (e.target.closest("a[href^='#'], a[href^='mailto:']") || e.target.closest(".sidebar-nav a")) {
-        setOpen(false);
+      function setOpen(open) {
+        document.body.classList.toggle("nav-open", open);
+        btn.setAttribute("aria-expanded", open ? "true" : "false");
+        scrim.setAttribute("aria-hidden", open ? "false" : "true");
       }
-    });
-    // Close on Escape
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") setOpen(false);
-    });
-    // Close if the viewport grows past the mobile breakpoint
-    const mq = window.matchMedia("(min-width: 961px)");
-    mq.addEventListener?.("change", (e) => { if (e.matches) setOpen(false); });
-  })();
-</script>
-<script>
-  document.getElementById("footer-year").textContent = new Date().getFullYear();
-  const lu = document.getElementById("footer-updated");
-  if (lu) {
-    const d = new Date(document.lastModified);
-    const opts = { year: "numeric", month: "short", day: "numeric",
-                   hour: "2-digit", minute: "2-digit", timeZoneName: "short" };
-    lu.textContent = "Last updated: " + d.toLocaleString("en-US", opts);
-  }
-</script>
+      btn.addEventListener("click", () => setOpen(!document.body.classList.contains("nav-open")));
+      scrim.addEventListener("click", () => setOpen(false));
+      drawer.addEventListener("click", (e) => {
+        if (e.target.closest("a[href^='#'], a[href^='mailto:']")) setOpen(false);
+      });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+      window.matchMedia("(min-width: 961px)").addEventListener?.("change", (e) => { if (e.matches) setOpen(false); });
+    })();
+  </script>
+
+  <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+    const lu = document.getElementById("footer-updated");
+    if (lu) {
+      const d = new Date(document.lastModified);
+      const opts = { year: "numeric", month: "short", day: "numeric",
+                     hour: "2-digit", minute: "2-digit", timeZoneName: "short" };
+      lu.textContent = "Last updated: " + d.toLocaleString("en-US", opts);
+    }
+  </script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 /* =====================================================
-   main.js – Renders all page content from data files
+   main.js – Renders page content into Material Web components
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderSidebar();
+  renderTopBarAndDrawer();
   renderAbout();
   renderResearchInterests();
   renderNews();
@@ -16,51 +16,76 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollSpy();
 });
 
-/* ── Sidebar ── */
-function renderSidebar() {
+/* ── Escape helper — data is trusted (author-authored), but we still avoid
+   accidentally injecting HTML from fields that shouldn't be markup ── */
+function esc(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+/* ── Top bar + drawer ── */
+function renderTopBarAndDrawer() {
   const p = PROFILE;
 
-  document.getElementById("sidebar-photo").src = p.photo;
-  document.getElementById("sidebar-photo").alt = p.name;
-
-  // Mobile top-bar mirrors sidebar identity
   const tbPhoto = document.getElementById("topbar-photo");
   const tbName  = document.getElementById("topbar-name");
   const tbSub   = document.getElementById("topbar-sub");
-  if (tbPhoto) { tbPhoto.src = p.photo; tbPhoto.alt = p.name; }
-  if (tbName)  tbName.textContent = p.preferredName || p.name;
-  if (tbSub)   tbSub.textContent  = [p.title, p.institution].filter(Boolean).join(" · ");
-  const nameEl = document.getElementById("sidebar-name");
-  if (p.preferredName) {
-    nameEl.innerHTML = `<span class="sidebar-preferred-name">${p.preferredName}</span><span class="sidebar-full-name">${p.name}</span>`;
-  } else {
-    nameEl.textContent = p.name;
-  }
-  document.getElementById("sidebar-title").textContent = p.title;
-  document.getElementById("sidebar-dept").textContent = p.department;
-  document.getElementById("sidebar-institution").textContent = p.institution;
-  document.getElementById("sidebar-location").innerHTML =
-    `<i class="fas fa-map-marker-alt"></i><span>${p.location}</span>`;
+  tbPhoto.src = p.photo; tbPhoto.alt = p.name;
+  tbName.textContent = p.preferredName || p.name;
+  tbSub.textContent  = [p.title, p.institution].filter(Boolean).join(" · ");
 
-  const linksEl = document.getElementById("sidebar-links");
-  // Remove old sidebar-info block if it exists (now rendered in sidebar-photo-wrap)
-  const oldInfo = document.querySelector(".sidebar-info");
-  if (oldInfo) oldInfo.remove();
-  const defs = [
-    { key: "cv",           icon: "fas fa-file-alt",        label: "Curriculum Vitae", href: () => p.links.cv, target: "_blank" },
-    { key: "email",        icon: "fas fa-envelope",         label: p.links.email,      href: () => `mailto:${p.links.email}`, target: "_self" },
-    { key: "googleScholar",icon: "fas fa-graduation-cap",   label: "Google Scholar",   href: () => p.links.googleScholar, target: "_blank" },
-    { key: "github",       icon: "fab fa-github",            label: "GitHub",           href: () => p.links.github, target: "_blank" },
-    { key: "linkedin",     icon: "fab fa-linkedin",          label: "LinkedIn",         href: () => p.links.linkedin, target: "_blank" },
-    { key: "twitter",      icon: "fab fa-twitter",           label: "Twitter / X",      href: () => p.links.twitter, target: "_blank" },
-    { key: "buetProfile",  icon: "fas fa-university", label: "BUET Profile", href: () => p.links.buetProfile, target: "_blank" },
+  const cvBtn = document.getElementById("cv-btn");
+  if (cvBtn && p.links.cv) cvBtn.setAttribute("href", p.links.cv);
+  const emailBtn = document.getElementById("email-btn");
+  if (emailBtn && p.links.email) {
+    emailBtn.setAttribute("href", `mailto:${p.links.email}`);
+  }
+
+  const drawerPhoto = document.getElementById("drawer-photo");
+  drawerPhoto.src = p.photo; drawerPhoto.alt = p.name;
+  document.getElementById("drawer-name").textContent = p.name;
+  document.getElementById("drawer-sub").textContent  =
+    [p.title, p.department, p.institution].filter(Boolean).join(" · ");
+  document.getElementById("drawer-loc").innerHTML =
+    `<md-icon class="loc-icon" aria-hidden="true">place</md-icon>${esc(p.location || "")}`;
+
+  const linkDefs = [
+    { key: "cv",           icon: "description",       label: "Curriculum Vitae", href: () => p.links.cv,                     target: "_blank" },
+    { key: "email",        icon: "mail",              label: p.links.email,      href: () => `mailto:${p.links.email}`,      target: "_self" },
+    { key: "googleScholar",icon: "school",            label: "Google Scholar",   href: () => p.links.googleScholar,          target: "_blank" },
+    { key: "github",       icon: "code",              label: "GitHub",           href: () => p.links.github,                 target: "_blank" },
+    { key: "linkedin",     icon: "business_center",   label: "LinkedIn",         href: () => p.links.linkedin,               target: "_blank" },
+    { key: "twitter",      icon: "alternate_email",   label: "Twitter / X",      href: () => p.links.twitter,                target: "_blank" },
+    { key: "buetProfile",  icon: "account_balance",   label: "BUET Profile",     href: () => p.links.buetProfile,            target: "_blank" },
   ];
-  linksEl.innerHTML = defs
+  const drawerLinks = document.getElementById("drawer-links");
+  drawerLinks.innerHTML = linkDefs
     .filter(d => p.links[d.key])
-    .map(d => `<a class="sidebar-link" href="${d.href()}" target="${d.target}" rel="noopener">
-      <i class="${d.icon}"></i><span>${d.label}</span>
-    </a>`)
+    .map(d => `
+      <md-list-item type="link" href="${esc(d.href())}" target="${d.target}" rel="noopener">
+        <md-icon slot="start">${d.icon}</md-icon>
+        <div slot="headline">${esc(d.label)}</div>
+      </md-list-item>`)
     .join("");
+
+  const navItems = [
+    { id: "about",        label: "About",        icon: "person" },
+    { id: "news",         label: "News",         icon: "campaign" },
+    { id: "publications", label: "Publications", icon: "menu_book" },
+    { id: "experience",   label: "Experience",   icon: "work" },
+    { id: "education",    label: "Education",    icon: "school" },
+    { id: "teaching",     label: "Teaching",     icon: "cast_for_education" },
+    { id: "services",     label: "Services",     icon: "handshake" },
+    { id: "awards",       label: "Awards",       icon: "emoji_events" },
+  ];
+  const nav = document.getElementById("drawer-nav");
+  nav.innerHTML = navItems.map(n => `
+    <md-list-item type="link" href="#${n.id}" data-nav="${n.id}">
+      <md-icon slot="start">${n.icon}</md-icon>
+      <div slot="headline">${n.label}</div>
+    </md-list-item>`).join("");
 }
 
 /* ── About ── */
@@ -73,13 +98,15 @@ function renderAbout() {
     return;
   }
   featuredEl.innerHTML = PROFILE.featured.map(f => `
-    <a class="featured-card" href="${f.url}" target="_blank" rel="noopener">
-      <span class="featured-badge">
-        <span class="badge-star">★</span>
-        <span class="badge-label">Featured</span>
-      </span>
-      <span class="featured-text"><strong>${f.label}</strong> &nbsp;${f.text}</span>
-      <span class="featured-arrow">↗</span>
+    <a class="featured-card" href="${esc(f.url)}" target="_blank" rel="noopener">
+      <md-elevation></md-elevation>
+      <md-ripple></md-ripple>
+      <md-icon class="featured-star" aria-hidden="true">star</md-icon>
+      <div class="featured-body">
+        <div class="featured-label md-typescale-label-small">Featured · ${esc(f.label)}</div>
+        <div class="featured-text md-typescale-body-medium">${f.text}</div>
+      </div>
+      <md-icon class="featured-arrow" aria-hidden="true">arrow_outward</md-icon>
     </a>`).join("");
 }
 
@@ -87,69 +114,66 @@ function renderAbout() {
 function renderResearchInterests() {
   const el = document.getElementById("interests-list");
   el.innerHTML = PROFILE.researchInterests
-    .map(i => `<li>${i}</li>`)
+    .map(i => `<md-assist-chip label="${esc(i)}"></md-assist-chip>`)
     .join("");
 
   const hobbiesEl = document.getElementById("hobbies-list");
   if (PROFILE.hobbies && PROFILE.hobbies.length) {
-    hobbiesEl.innerHTML = `<h3 class="subsection-title">Other Interests</h3>
-      <ul>${PROFILE.hobbies.map(h => `<li>${h}</li>`).join("")}</ul>`;
+    hobbiesEl.innerHTML = `
+      <h3 class="subsection-title md-typescale-title-small">Other Interests</h3>
+      <md-chip-set>
+        ${PROFILE.hobbies.map(h => `<md-suggestion-chip label="${esc(h)}"></md-suggestion-chip>`).join("")}
+      </md-chip-set>`;
   }
 }
 
 /* ── News / Timeline ── */
 const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
-function typeClass(type) {
-  if (type === "personal") return "timeline-personal";
-  if (type === "pub")      return "timeline-pub";
-  return "";
-}
-
-function typeTag(type) {
-  if (type === "personal") return `<span class="timeline-tag tag-personal">Personal</span>`;
-  if (type === "pub")      return `<span class="timeline-tag tag-pub">Publication</span>`;
-  if (type === "career")   return `<span class="timeline-tag tag-career">Career</span>`;
-  return "";
+function typeMeta(type) {
+  if (type === "personal") return { cls: "timeline-personal", icon: "favorite",    tag: "Personal"    };
+  if (type === "pub")      return { cls: "timeline-pub",      icon: "menu_book",   tag: "Publication" };
+  if (type === "career")   return { cls: "timeline-career",   icon: "work",        tag: "Career"      };
+  return                             { cls: "",                icon: "info",        tag: "News"        };
 }
 
 function renderNews() {
   const el = document.getElementById("news-list");
   if (!NEWS || NEWS.length === 0) {
-    el.innerHTML = `<p class="news-empty">No news yet – check back soon.</p>`;
+    el.innerHTML = `<p class="news-empty md-typescale-body-medium">No news yet – check back soon.</p>`;
     return;
   }
-
-  // Group by year
   const byYear = {};
   NEWS.forEach(n => {
     const year = n.date.split(".")[0];
-    if (!byYear[year]) byYear[year] = [];
-    byYear[year].push(n);
+    (byYear[year] ||= []).push(n);
   });
-
   const years = Object.keys(byYear).sort((a, b) => b - a);
 
-  let html = `<ul class="timeline">`;
+  let html = `<ol class="timeline">`;
   years.forEach(year => {
-    html += `<li class="timeline-year-block">
-      <div class="timeline-year-label">${year}</div>
-      <ul class="timeline-items">`;
-
+    html += `
+      <li class="timeline-year-block">
+        <div class="timeline-year-label md-typescale-title-medium">${year}</div>
+        <ol class="timeline-items">`;
     byYear[year].forEach(n => {
       const monthNum = parseInt(n.date.split(".")[1], 10);
       const monthLabel = MONTH_NAMES[monthNum - 1] || n.date.split(".")[1];
+      const m = typeMeta(n.type);
       html += `
-        <li class="timeline-item ${typeClass(n.type)}">
-          <span class="timeline-month">${monthLabel}</span>
-          <span class="timeline-dot"></span>
-          <span class="timeline-text">${typeTag(n.type)}${n.text}</span>
+        <li class="timeline-item ${m.cls}">
+          <span class="timeline-month md-typescale-label-medium">${monthLabel}</span>
+          <span class="timeline-dot" aria-hidden="true">
+            <md-icon>${m.icon}</md-icon>
+          </span>
+          <span class="timeline-text md-typescale-body-medium">
+            <span class="timeline-tag md-typescale-label-small">${m.tag}</span>${n.text}
+          </span>
         </li>`;
     });
-
-    html += `</ul></li>`;
+    html += `</ol></li>`;
   });
-  html += `</ul>`;
+  html += `</ol>`;
   el.innerHTML = html;
 }
 
@@ -158,22 +182,27 @@ function renderPublications() {
   const el = document.getElementById("pub-list");
   el.innerHTML = `<ul class="pub-list">` +
     PUBLICATIONS.map(pub => `
-      <li class="pub-item">
-        <div class="pub-title">${pub.title}</div>
-        <div class="pub-authors">${pub.authors}</div>
-        <div class="pub-venue">${pub.venue}</div>
+      <li class="pub-card">
+        <md-elevation></md-elevation>
+        <div class="pub-title md-typescale-title-medium">${pub.title}</div>
+        <div class="pub-authors md-typescale-body-medium">${pub.authors}</div>
+        <div class="pub-venue md-typescale-body-small">${pub.venue}</div>
         ${pub.links && pub.links.length
           ? `<div class="pub-links">${pub.links.map(l =>
-              `<a class="pub-link" href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`
+              `<md-text-button href="${esc(l.url)}" target="_blank" rel="noopener">
+                <md-icon slot="icon">open_in_new</md-icon>${esc(l.label)}
+              </md-text-button>`
             ).join("")}</div>`
           : ""}
       </li>`).join("") +
     `</ul>`;
 
   if (PROFILE.erdosNumber) {
-    document.getElementById("erdos-note").innerHTML =
-      `<strong>Erdős Number: ${PROFILE.erdosNumber.number}</strong> – ${PROFILE.erdosNumber.chain}`;
-    document.getElementById("erdos-note").style.display = "";
+    const note = document.getElementById("erdos-note");
+    note.innerHTML =
+      `<md-icon aria-hidden="true">functions</md-icon>
+       <span><strong>Erdős Number: ${PROFILE.erdosNumber.number}</strong> — ${esc(PROFILE.erdosNumber.chain)}</span>`;
+    note.hidden = false;
   }
 }
 
@@ -182,11 +211,16 @@ function renderExperience() {
   const el = document.getElementById("exp-list");
   el.innerHTML = `<ul class="exp-list">` +
     EXPERIENCE.map(e => `
-      <li class="exp-item">
-        <div class="exp-role">${e.role}</div>
-        <div class="exp-period">${e.period}</div>
-        <div class="exp-org"><a href="${e.orgUrl}" target="_blank" rel="noopener">${e.org}</a></div>
-        ${e.description ? `<div class="exp-desc">${e.description}</div>` : ""}
+      <li class="exp-card">
+        <md-elevation></md-elevation>
+        <div class="exp-head">
+          <div class="exp-role md-typescale-title-medium">${esc(e.role)}</div>
+          <md-assist-chip label="${esc(e.period)}"></md-assist-chip>
+        </div>
+        <div class="exp-org md-typescale-body-medium">
+          <a href="${esc(e.orgUrl)}" target="_blank" rel="noopener">${esc(e.org)}</a>
+        </div>
+        ${e.description ? `<div class="exp-desc md-typescale-body-medium">${e.description}</div>` : ""}
       </li>`).join("") +
     `</ul>`;
 }
@@ -196,11 +230,16 @@ function renderEducation() {
   const el = document.getElementById("edu-list");
   el.innerHTML = `<ul class="edu-list">` +
     EDUCATION.map(e => `
-      <li class="edu-item">
-        <div class="edu-degree">${e.degree}</div>
-        <div class="edu-period">${e.period}</div>
-        <div class="edu-inst"><a href="${e.institutionUrl}" target="_blank" rel="noopener">${e.institution}</a></div>
-        ${e.detail ? `<div class="edu-detail">${e.detail}</div>` : ""}
+      <li class="edu-card">
+        <md-elevation></md-elevation>
+        <div class="exp-head">
+          <div class="edu-degree md-typescale-title-medium">${esc(e.degree)}</div>
+          <md-assist-chip label="${esc(e.period)}"></md-assist-chip>
+        </div>
+        <div class="edu-inst md-typescale-body-medium">
+          <a href="${esc(e.institutionUrl)}" target="_blank" rel="noopener">${esc(e.institution)}</a>
+        </div>
+        ${e.detail ? `<div class="edu-detail md-typescale-body-small">${esc(e.detail)}</div>` : ""}
       </li>`).join("") +
     `</ul>`;
 }
@@ -208,51 +247,56 @@ function renderEducation() {
 /* ── Teaching ── */
 function renderTeaching() {
   const el = document.getElementById("teaching-list");
-  el.innerHTML = `<ul class="teaching-grid">` +
+  el.innerHTML = `<md-list class="teaching-list">` +
     TEACHING.map(t => `
-      <li class="teaching-item">
-        <span class="teaching-code">${t.code}</span>
-        <span>${t.title}</span>
-      </li>`).join("") +
-    `</ul>`;
+      <md-list-item>
+        <md-icon slot="start">cast_for_education</md-icon>
+        <div slot="headline">${t.title}</div>
+        <div slot="supporting-text">${esc(t.code)}</div>
+      </md-list-item>`).join("") +
+    `</md-list>`;
 }
 
 /* ── Services ── */
 function renderServices() {
   const el = document.getElementById("services-list");
-  el.innerHTML = `<ul>` +
-    SERVICES.map(s => `<li>${s}</li>`).join("") +
-    `</ul>`;
+  el.innerHTML = `<md-list class="services-list">` +
+    SERVICES.map(s => `
+      <md-list-item>
+        <md-icon slot="start">check_circle</md-icon>
+        <div slot="headline">${s}</div>
+      </md-list-item>`).join("") +
+    `</md-list>`;
 }
 
 /* ── Awards ── */
 function renderAwards() {
   const el = document.getElementById("awards-list");
-  el.innerHTML = `<ul class="awards-list">` +
-    AWARDS.map(a => `<li><span>${a}</span></li>`).join("") +
-    `</ul>`;
+  el.innerHTML = `<md-list class="awards-list">` +
+    AWARDS.map(a => `
+      <md-list-item>
+        <md-icon slot="start">emoji_events</md-icon>
+        <div slot="headline">${a}</div>
+      </md-list-item>`).join("") +
+    `</md-list>`;
 }
 
-/* ── Scroll Spy ── */
+/* ── Scroll Spy — highlight the active md-list-item in the drawer nav ── */
 function initScrollSpy() {
   const sections = document.querySelectorAll(".section[id]");
-  const navLinks = document.querySelectorAll(".sidebar-nav a[href^='#']");
+  const navItems = document.querySelectorAll("#drawer-nav md-list-item[data-nav]");
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          navLinks.forEach(link => {
-            link.classList.toggle(
-              "active",
-              link.getAttribute("href") === `#${entry.target.id}`
-            );
+          navItems.forEach(item => {
+            item.classList.toggle("nav-active", item.dataset.nav === entry.target.id);
           });
         }
       });
     },
     { rootMargin: "-20% 0px -70% 0px" }
   );
-
   sections.forEach(s => observer.observe(s));
 }
