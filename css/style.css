@@ -292,31 +292,40 @@ body.nav-open { overflow: hidden; }
   font-family: var(--md-ref-typeface-brand);
 }
 .timeline-items {
-  margin-left: 18px;
+  /* Rail sits between the month column (48px) and the dot column (28px),
+     so the rail's x position is 48px + gap. We use padding-left on this
+     container so the border-left aligns with the CENTER of the dot column. */
+  margin-left: 72px;                                   /* 44px month + 21px gutter + 7px page inset */
   border-left: 2px solid var(--md-sys-color-outline-variant);
   padding-left: 0;
 }
 .timeline-item {
   display: grid;
-  grid-template-columns: 48px 28px 1fr;
+  grid-template-columns: 28px 1fr;                     /* dot | text; month is absolutely positioned to the LEFT of the rail */
   align-items: flex-start;
-  gap: 0 10px;
+  column-gap: 14px;
   padding: 8px 0;
+  position: relative;                                  /* anchor absolute month */
 }
 .timeline-month {
+  position: absolute;
+  /* Dot pokes 15px past the item's left edge (margin-left: -15px on .timeline-dot).
+     Add a 6px breathing gutter, so shift the month left by 15 + 6 = 21px. */
+  right: calc(100% + 21px);
+  top: 8px;
+  width: 44px;
   text-align: right;
   color: var(--md-sys-color-on-surface-variant);
-  padding-top: 4px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 .timeline-dot {
   width: 28px; height: 28px;
   border-radius: 50%;
   background: var(--md-sys-color-surface);
   border: 2px solid var(--md-sys-color-outline-variant);
-  position: relative;
-  left: -14px;
+  margin-left: -15px;                                  /* pull half the dot over the 2px rail so it sits centered on the line */
   display: inline-flex; align-items: center; justify-content: center;
   color: var(--md-sys-color-on-surface-variant);
   flex-shrink: 0;
@@ -498,9 +507,10 @@ body.nav-open { overflow: hidden; }
   .main-content { padding: 16px 12px 96px; }
   .section-title { font-size: 1.4rem; }
   .exp-head, .edu-head { align-items: flex-start; flex-direction: column; gap: 6px; }
-  .timeline-items { margin-left: 6px; }
-  .timeline-item { grid-template-columns: 40px 24px 1fr; gap: 0 6px; }
-  .timeline-dot { width: 24px; height: 24px; left: -12px; }
+  .timeline-items { margin-left: 62px; }               /* 36px month + 19px gutter + inset */
+  .timeline-item { grid-template-columns: 24px 1fr; column-gap: 10px; }
+  .timeline-month { width: 36px; right: calc(100% + 19px); top: 8px; }  /* dot poke (13px) + 6px gutter */
+  .timeline-dot { width: 24px; height: 24px; margin-left: -13px; }
   .timeline-dot md-icon { --md-icon-size: 14px; font-size: 14px; }
   .featured-arrow { display: none; }
   .footer-updated { display: none; }
