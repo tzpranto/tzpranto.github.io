@@ -28,6 +28,8 @@ My research intersects <strong>AI and cybersecurity</strong>, with a particular 
   ],
   links: {
     email: "mpt5763@psu.edu",
+    emailBuet: "toufik@cse.buet.ac.bd",
+    emailPersonal: "md.toufikzaman@gmail.com",
     googleScholar: "https://scholar.google.com/citations?user=-8m6JVAAAAAJ&hl=en",
     github: "https://github.com/tzpranto",
     linkedin: "https://linkedin.com/in/toufik-zaman-pranto",

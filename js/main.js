@@ -288,6 +288,12 @@ function renderContact() {
   const el = document.getElementById("contact-card");
   if (!el) return;
   const p = PROFILE;
+  const emails = [
+    { addr: p.links.email,         label: "Penn State (primary)", primary: true },
+    { addr: p.links.emailBuet,     label: "BUET" },
+    { addr: p.links.emailPersonal, label: "Personal" },
+  ].filter(e => e.addr);
+
   const socials = [
     { key: "googleScholar", icon: "school",           label: "Google Scholar" },
     { key: "github",        icon: "code",             label: "GitHub" },
@@ -299,12 +305,15 @@ function renderContact() {
   el.innerHTML = `
     <div class="contact-card">
       <md-elevation></md-elevation>
-      <div class="contact-primary">
-        <div class="contact-label md-typescale-label-small">Best way to reach me</div>
-        <a class="contact-email md-typescale-headline-small" href="mailto:${esc(p.links.email)}">
-          <md-icon aria-hidden="true">mail</md-icon>
-          <span>${esc(p.links.email)}</span>
-        </a>
+      <div class="contact-emails">
+        <div class="contact-label md-typescale-label-small">Email</div>
+        ${emails.map(e => `
+          <a class="contact-email ${e.primary ? "contact-email-primary" : ""} ${e.primary ? "md-typescale-headline-small" : "md-typescale-body-medium"}"
+             href="mailto:${esc(e.addr)}">
+            <md-icon aria-hidden="true">${e.primary ? "mail" : "alternate_email"}</md-icon>
+            <span class="contact-email-addr">${esc(e.addr)}</span>
+            <span class="contact-email-tag md-typescale-label-small">${esc(e.label)}</span>
+          </a>`).join("")}
       </div>
       <div class="contact-socials">
         ${socials.map(s => `

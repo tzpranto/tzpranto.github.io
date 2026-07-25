@@ -407,7 +407,7 @@ body.nav-open { overflow: hidden; }
   gap: 24px;
   flex-wrap: wrap;
 }
-.contact-primary { flex: 1; min-width: 260px; }
+.contact-emails { flex: 1; min-width: 260px; display: flex; flex-direction: column; gap: 6px; }
 .contact-label {
   color: var(--md-sys-color-primary);
   text-transform: uppercase;
@@ -420,10 +420,22 @@ body.nav-open { overflow: hidden; }
   align-items: center;
   gap: 8px;
   color: var(--md-sys-color-on-primary-container);
-  font-family: var(--md-ref-typeface-brand);
   word-break: break-word;
+  padding: 4px 0;
 }
+.contact-email-primary { font-family: var(--md-ref-typeface-brand); }
 .contact-email:hover { text-decoration: underline; }
+.contact-email-addr { flex: 0 1 auto; }
+.contact-email-tag {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(30,64,124,.12);
+  color: var(--md-sys-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  white-space: nowrap;
+}
 .contact-socials {
   display: flex; flex-wrap: wrap; gap: 4px;
   --md-icon-button-icon-color: var(--md-sys-color-on-primary-container);
