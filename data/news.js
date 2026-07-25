@@ -8,7 +8,7 @@ const NEWS = [
   },
   {
     date: "2025.12",
-    text: `Co-led team <strong>Lion-0xA</strong> in the <a href="https://www.linkedin.com/feed/update/urn:li:activity:7430238616376832001/" target="_blank" rel="noopener">Amazon Nova AI Challenge 2026</a> — selected as 1 of 10 global teams. Red Team role: designing user simulators and autonomous agents for web app security testing. Supported by Amazon's quarter-million-dollar grant and generous AWS credits.`,
+    text: `Co-led team <strong>Lion-0xA</strong> in the <a href="https://www.linkedin.com/feed/update/urn:li:activity:7430238616376832001/" target="_blank" rel="noopener">Amazon Nova AI Challenge 2026</a> — selected as 1 of 10 global teams. Red Team role: designing user simulators and autonomous agents for web app security testing. Supported by Amazon's quarter-million-dollar grant and over $1.5M in AWS credits.`,
   },
   {
     date: "2025.09",

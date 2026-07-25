@@ -22,7 +22,7 @@ My research intersects <strong>AI and cybersecurity</strong>, with a particular 
   featured: [
     {
       label: "Penn State News",
-      text: `Team Lion-0xA — 1 of 10 global finalists in the <strong>Amazon Nova AI Challenge 2026</strong>. Toufik co-leads autonomous red-team AI research supported by a quarter-million-dollar Amazon grant.`,
+      text: `Team Lion-0xA — 1 of 10 global finalists in the <strong>Amazon Nova AI Challenge 2026</strong>. Toufik co-leads autonomous red-team AI research supported by a quarter-million-dollar Amazon grant and over $1.5M in AWS credits.`,
       url: "https://www.psu.edu/news/research/story/ist-engineering-students-competing-global-amazon-nova-ai-challenge",
     },
   ],
