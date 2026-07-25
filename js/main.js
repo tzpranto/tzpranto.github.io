@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTeaching();
   renderServices();
   renderAwards();
+  renderContact();
   initScrollSpy();
 });
 
@@ -79,6 +80,7 @@ function renderTopBarAndDrawer() {
     { id: "teaching",     label: "Teaching",     icon: "cast_for_education" },
     { id: "services",     label: "Services",     icon: "handshake" },
     { id: "awards",       label: "Awards",       icon: "emoji_events" },
+    { id: "contact",      label: "Contact",      icon: "alternate_email" },
   ];
   const nav = document.getElementById("drawer-nav");
   nav.innerHTML = navItems.map(n => `
@@ -279,6 +281,38 @@ function renderAwards() {
         <div slot="headline">${a}</div>
       </md-list-item>`).join("") +
     `</md-list>`;
+}
+
+/* ── Contact ── */
+function renderContact() {
+  const el = document.getElementById("contact-card");
+  if (!el) return;
+  const p = PROFILE;
+  const socials = [
+    { key: "googleScholar", icon: "school",           label: "Google Scholar" },
+    { key: "github",        icon: "code",             label: "GitHub" },
+    { key: "linkedin",      icon: "business_center",  label: "LinkedIn" },
+    { key: "twitter",       icon: "alternate_email",  label: "Twitter / X" },
+    { key: "buetProfile",   icon: "account_balance",  label: "BUET Profile" },
+  ].filter(s => p.links[s.key]);
+
+  el.innerHTML = `
+    <div class="contact-card">
+      <md-elevation></md-elevation>
+      <div class="contact-primary">
+        <div class="contact-label md-typescale-label-small">Best way to reach me</div>
+        <a class="contact-email md-typescale-headline-small" href="mailto:${esc(p.links.email)}">
+          <md-icon aria-hidden="true">mail</md-icon>
+          <span>${esc(p.links.email)}</span>
+        </a>
+      </div>
+      <div class="contact-socials">
+        ${socials.map(s => `
+          <md-icon-button href="${esc(p.links[s.key])}" target="_blank" rel="noopener" aria-label="${esc(s.label)}" title="${esc(s.label)}">
+            <md-icon>${s.icon}</md-icon>
+          </md-icon-button>`).join("")}
+      </div>
+    </div>`;
 }
 
 /* ── Scroll Spy — highlight the active md-list-item in the drawer nav ── */

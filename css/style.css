@@ -392,6 +392,43 @@ body.nav-open { overflow: hidden; }
   --md-list-item-leading-icon-color: #b58900; /* trophy gold */
 }
 
+/* ═══════════════════ CONTACT ═══════════════════ */
+.contact-card {
+  position: relative;
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  isolation: isolate;
+  --md-elevation-level: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.contact-primary { flex: 1; min-width: 260px; }
+.contact-label {
+  color: var(--md-sys-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.contact-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--md-sys-color-on-primary-container);
+  font-family: var(--md-ref-typeface-brand);
+  word-break: break-word;
+}
+.contact-email:hover { text-decoration: underline; }
+.contact-socials {
+  display: flex; flex-wrap: wrap; gap: 4px;
+  --md-icon-button-icon-color: var(--md-sys-color-on-primary-container);
+}
+
 .erdos-note {
   margin-top: 16px;
   padding: 12px 16px;
