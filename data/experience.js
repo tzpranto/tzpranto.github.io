@@ -93,7 +93,7 @@ const TEACHING = [
 
 const SERVICES = [
   "<strong>Reviewer</strong> — IEEE Symposium on Security and Privacy (S&P), External Reviewer (2025); BMC Research Notes, Springer Nature (2020).",
-  "<strong>Course Teacher</strong> — IAC (Industry-Academia Collaboration) short course on <em>Generative AI and Deep Learning</em> for Samsung R&amp;D Bangladesh employees.",
+  "<strong>Course Teacher</strong> — <em>Generative AI and Deep Learning</em> for Samsung R&amp;D Bangladesh employees offered by BK-IAC, CSE, BUET.",
   "Technical Committee Member of Investment Promotion & Financing Facility II (IPFF II) Project of Bangladesh Bank (Funded by the World Bank).",
   "Vulnerability Assessment and Penetration Testing of Android, iOS, and Web applications and IT infrastructures of fintech institutions.",
   "Consultation on Establishment of Security Operations Center (SOC) in a government organization of Bangladesh.",
