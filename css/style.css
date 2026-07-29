@@ -74,6 +74,18 @@ ul, ol { list-style: none; padding: 0; }
 /* Material Symbols icons default sizing inside our layouts */
 md-icon { color: currentColor; }
 
+/* Brand SVGs (Twitter/X etc.) are drawn to match md-icon dimensions */
+.brand-svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: middle;
+}
+md-icon-button .brand-svg { width: 20px; height: 20px; }
+.link-icon-slot { display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center; }
+.link-icon-slot .brand-svg { width: 18px; height: 18px; }
+
 /* ═══════════════════ TOP APP BAR ═══════════════════ */
 .top-bar {
   position: fixed;
@@ -427,12 +439,15 @@ body.nav-open { overflow: hidden; }
 .contact-email {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   color: var(--md-sys-color-on-primary-container);
   word-break: break-word;
   padding: 4px 0;
+  font-family: var(--md-ref-typeface-plain);
+  font-size: 1rem;
+  line-height: 1.4;
 }
-.contact-email-primary { font-family: var(--md-ref-typeface-brand); }
+.contact-email md-icon { --md-icon-size: 20px; font-size: 20px; flex-shrink: 0; }
 .contact-email:hover { text-decoration: underline; }
 .contact-email-addr { flex: 0 1 auto; }
 .contact-email-tag {

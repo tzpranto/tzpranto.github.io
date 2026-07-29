@@ -26,6 +26,20 @@ function esc(s) {
     .replace(/>/g, "&gt;");
 }
 
+/* ── Icon helper — Material Symbols name OR an inline SVG for brand marks
+   (Twitter/X doesn't ship in Material Symbols). ── */
+const BRAND_SVG = {
+  x: `<svg viewBox="0 0 1200 1227" fill="currentColor" aria-hidden="true" class="brand-svg">
+        <path d="M714 519 1160 0h-106L671 448 366 0H12l468 681L12 1227h106l409-478 327 478h354L714 519Zm-145 169-47-68L155 80h163l305 436 47 68 396 566H903L569 688Z"/>
+      </svg>`,
+};
+function iconMarkup(icon) {
+  if (icon && icon.startsWith("brand:")) {
+    return BRAND_SVG[icon.slice(6)] || "";
+  }
+  return `<md-icon>${icon}</md-icon>`;
+}
+
 /* ── Top bar + drawer ── */
 function renderTopBarAndDrawer() {
   const p = PROFILE;
@@ -58,7 +72,7 @@ function renderTopBarAndDrawer() {
     { key: "googleScholar",icon: "school",            label: "Google Scholar",   href: () => p.links.googleScholar,          target: "_blank" },
     { key: "github",       icon: "code",              label: "GitHub",           href: () => p.links.github,                 target: "_blank" },
     { key: "linkedin",     icon: "business_center",   label: "LinkedIn",         href: () => p.links.linkedin,               target: "_blank" },
-    { key: "twitter",      icon: "alternate_email",   label: "Twitter / X",      href: () => p.links.twitter,                target: "_blank" },
+    { key: "twitter",      icon: "brand:x",           label: "Twitter / X",      href: () => p.links.twitter,                target: "_blank" },
     { key: "buetProfile",  icon: "account_balance",   label: "BUET Profile",     href: () => p.links.buetProfile,            target: "_blank" },
   ];
   const drawerLinks = document.getElementById("drawer-links");
@@ -66,7 +80,7 @@ function renderTopBarAndDrawer() {
     .filter(d => p.links[d.key])
     .map(d => `
       <md-list-item type="link" href="${esc(d.href())}" target="${d.target}" rel="noopener">
-        <md-icon slot="start">${d.icon}</md-icon>
+        <span slot="start" class="link-icon-slot">${iconMarkup(d.icon)}</span>
         <div slot="headline">${esc(d.label)}</div>
       </md-list-item>`)
     .join("");
@@ -241,7 +255,7 @@ function renderEducation() {
         <div class="edu-inst md-typescale-body-medium">
           <a href="${esc(e.institutionUrl)}" target="_blank" rel="noopener">${esc(e.institution)}</a>
         </div>
-        ${e.detail ? `<div class="edu-detail md-typescale-body-small">${esc(e.detail)}</div>` : ""}
+        ${e.detail ? `<div class="edu-detail md-typescale-body-small">${e.detail}</div>` : ""}
       </li>`).join("") +
     `</ul>`;
 }
@@ -298,7 +312,7 @@ function renderContact() {
     { key: "googleScholar", icon: "school",           label: "Google Scholar" },
     { key: "github",        icon: "code",             label: "GitHub" },
     { key: "linkedin",      icon: "business_center",  label: "LinkedIn" },
-    { key: "twitter",       icon: "alternate_email",  label: "Twitter / X" },
+    { key: "twitter",       icon: "brand:x",          label: "Twitter / X" },
     { key: "buetProfile",   icon: "account_balance",  label: "BUET Profile" },
   ].filter(s => p.links[s.key]);
 
@@ -308,9 +322,8 @@ function renderContact() {
       <div class="contact-emails">
         <div class="contact-label md-typescale-label-small">Email</div>
         ${emails.map(e => `
-          <a class="contact-email ${e.primary ? "contact-email-primary" : ""} ${e.primary ? "md-typescale-headline-small" : "md-typescale-body-medium"}"
-             href="mailto:${esc(e.addr)}">
-            <md-icon aria-hidden="true">${e.primary ? "mail" : "alternate_email"}</md-icon>
+          <a class="contact-email md-typescale-body-large" href="mailto:${esc(e.addr)}">
+            <md-icon aria-hidden="true">mail</md-icon>
             <span class="contact-email-addr">${esc(e.addr)}</span>
             <span class="contact-email-tag md-typescale-label-small">${esc(e.label)}</span>
           </a>`).join("")}
@@ -318,7 +331,7 @@ function renderContact() {
       <div class="contact-socials">
         ${socials.map(s => `
           <md-icon-button href="${esc(p.links[s.key])}" target="_blank" rel="noopener" aria-label="${esc(s.label)}" title="${esc(s.label)}">
-            <md-icon>${s.icon}</md-icon>
+            ${iconMarkup(s.icon)}
           </md-icon-button>`).join("")}
       </div>
     </div>`;

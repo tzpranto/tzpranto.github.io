@@ -35,14 +35,18 @@ const EDUCATION = [
     institution: "Bangladesh University of Engineering and Technology (BUET)",
     institutionUrl: "http://buet.ac.bd/",
     period: "Passed in 2023",
-    detail: "CGPA: 4.00 / 4.00",
+    detail: `CGPA: 4.00 / 4.00<br>
+      <strong>Thesis:</strong> <a href="http://lib.buet.ac.bd:8080/xmlui/handle/123456789/6516" target="_blank" rel="noopener">CRISPR-DIPOFF: An Interpretable Deep Learning Approach for CRISPR Cas-9 Off-Target Prediction</a><br>
+      <strong>Advisor:</strong> Dr. M. Sohel Rahman`,
   },
   {
     degree: "B.Sc. Engg., Computer Science and Engineering",
     institution: "Bangladesh University of Engineering and Technology (BUET)",
     institutionUrl: "http://buet.ac.bd/",
     period: "Passed in 2019",
-    detail: "CGPA: 3.97 / 4.00",
+    detail: `CGPA: 3.97 / 4.00<br>
+      <strong>Thesis:</strong> CRISPRpred(SEQ): A Sequence-Based Tool for sgRNA On-Target Activity Prediction<br>
+      <strong>Advisor:</strong> Dr. M. Sohel Rahman`,
   },
   {
     degree: "H.S.C. (Higher Secondary Certificate), Science",
