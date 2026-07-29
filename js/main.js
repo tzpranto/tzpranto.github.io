@@ -267,8 +267,8 @@ function renderTeaching() {
     TEACHING.map(t => `
       <md-list-item>
         <md-icon slot="start">cast_for_education</md-icon>
-        <div slot="headline">${t.title}</div>
-        <div slot="supporting-text">${esc(t.code)}</div>
+        <div slot="headline">${esc(t.title)}</div>
+        <div slot="supporting-text">${esc(t.code)}${t.role ? ` &middot; ${esc(t.role)}` : ""}</div>
       </md-list-item>`).join("") +
     `</md-list>`;
 }

@@ -74,27 +74,28 @@ const AWARDS = [
 
 const TEACHING = [
   // PSU
-  { code: "CMPEN 472", title: "Microprocessor and Embedded Systems &nbsp;<em style='font-size:0.78rem;color:var(--text-muted)'>(TA, PSU)</em>" },
+  { code: "CMPEN 472",  title: "Microprocessor and Embedded Systems",         role: "TA, PSU" },
   // BUET
-  { code: "CSE 405/406", title: "Computer Security & Lab" },
-  { code: "CSE 451/452", title: "Computer Networks & Lab" },
-  { code: "CSE 305/306", title: "Computer Architecture & Lab" },
-  { code: "CSE 215/216", title: "Database & Lab" },
-  { code: "CSE 218", title: "Numerical Methods [Lab]" },
-  { code: "CSE 412", title: "Simulation and Modeling [Lab]" },
-  { code: "CSE 308", title: "Software Engineering [Lab]" },
-  { code: "CSE 326", title: "Information System Design [Lab]" },
-  { code: "CSE 408", title: "Software Development [Lab]" },
-  { code: "CSE 102", title: "Structured Programming Language [Lab]" },
-  { code: "CSE 108", title: "Object Oriented Programming Language [Lab]" },
-  { code: "CSE 208", title: "Data Structures and Algorithms II [Lab]" },
-  { code: "CSE 284", title: "Digital Techniques [Lab]" },
+  { code: "CSE 405/406", title: "Computer Security",                          role: "Course Teacher, BUET" },
+  { code: "CSE 451/452", title: "Computer Networks",                          role: "Course Teacher, BUET" },
+  { code: "CSE 305/306", title: "Computer Architecture",                      role: "Course Teacher, BUET" },
+  { code: "CSE 215/216", title: "Database",                                   role: "Course Teacher, BUET" },
+  { code: "CSE 218",     title: "Numerical Methods",                          role: "Course Teacher, BUET" },
+  { code: "CSE 412",     title: "Simulation and Modeling",                    role: "Course Teacher, BUET" },
+  { code: "CSE 308",     title: "Software Engineering",                       role: "Course Teacher, BUET" },
+  { code: "CSE 326",     title: "Information System Design",                  role: "Course Teacher, BUET" },
+  { code: "CSE 408",     title: "Software Development",                       role: "Course Teacher, BUET" },
+  { code: "CSE 102",     title: "Structured Programming Language",            role: "Course Teacher, BUET" },
+  { code: "CSE 108",     title: "Object Oriented Programming Language",       role: "Course Teacher, BUET" },
+  { code: "CSE 208",     title: "Data Structures and Algorithms II",          role: "Course Teacher, BUET" },
+  { code: "CSE 284",     title: "Digital Techniques",                         role: "Course Teacher, BUET" },
 ];
 
 const SERVICES = [
   "<strong>Reviewer</strong> — IEEE Symposium on Security and Privacy (S&P), External Reviewer (2025); BMC Research Notes, Springer Nature (2020).",
+  "<strong>Course Teacher</strong> — IAC (Industry-Academia Collaboration) short course on <em>Generative AI and Deep Learning</em> for Samsung R&amp;D Bangladesh employees.",
   "Technical Committee Member of Investment Promotion & Financing Facility II (IPFF II) Project of Bangladesh Bank (Funded by the World Bank).",
-  "Vulnerability Assessment and Penetration Testing of Android, iOS and Web Applications and IT Infrastructures.",
+  "Vulnerability Assessment and Penetration Testing of Android, iOS, and Web applications and IT infrastructures of fintech institutions.",
   "Consultation on Establishment of Security Operations Center (SOC) in a government organization of Bangladesh.",
   "Member of various Technical Sub-Committees of Government Organizations in Bangladesh.",
   "Development of Mission Critical components for BANBEIS IEIMS project of Ministry of Education of Bangladesh Government.",
